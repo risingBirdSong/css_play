@@ -21,8 +21,7 @@
   height: 0;
   border-top: 60px solid purple;
   border-bottom: 60px solid blue;
-
-  border-left: 60px solid green;
+  border-left: 30px solid green;
 }
 
 .arrow-left {
@@ -30,8 +29,8 @@
   height: 0;
   border-top: 60px solid transparent;
   border-bottom: 60px solid transparent;
-
-  border-right: 60px solid blue;
+  border-radius: 100%;
+  border-right: 500px solid blue;
 }
 
 
