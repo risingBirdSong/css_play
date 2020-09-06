@@ -29,6 +29,7 @@
   height: 0;
   border-top: 60px solid transparent;
   border-bottom: 60px solid transparent;
-  border-radius: 100%;
+  border-radius: 20%;
   border-right: 500px solid blue;
+  transform: scaleY(1.2);
 }

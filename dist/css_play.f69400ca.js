@@ -28304,20 +28304,23 @@ Object.defineProperty(exports, "__esModule", {
 
 var React = __importStar(require("react"));
 
-var Pedal = function Pedal() {
-  return /*#__PURE__*/React.createElement("div", {
+var Pedal = function Pedal(props) {
+  return React.createElement("div", {
     className: "pedal",
     style: {
-      backgroundColor: "blue",
+      // backgroundColor: "blue",
       padding: "15px",
-      height: "80px",
-      width: "30px",
+      height: props.height,
+      width: props.width,
       position: "absolute",
+      top: props.top,
+      left: props.left,
+      transform: "rotate(".concat(props.rotateAmount, "deg)"),
       borderTopLeftRadius: "50%",
       borderTopRightRadius: "50%",
-      borderBottomRightRadius: "100%",
-      borderBottomLeftRadius: "100%",
-      transform: "scaleY(5)"
+      borderBottomRightRadius: "90%",
+      borderBottomLeftRadius: "90%",
+      border: "1px solid black"
     }
   });
 };
@@ -28325,6 +28328,18 @@ var Pedal = function Pedal() {
 exports.default = Pedal;
 },{"react":"node_modules/react/index.js"}],"componenents/Flower.tsx":[function(require,module,exports) {
 "use strict";
+
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
 var __importStar = this && this.__importStar || function (mod) {
   if (mod && mod.__esModule) return mod;
@@ -28351,7 +28366,9 @@ var React = __importStar(require("react"));
 var Pedal_1 = __importDefault(require("./Pedal"));
 
 var Flower = function Flower() {
-  return /*#__PURE__*/React.createElement("div", {
+  var nums = _toConsumableArray(Array(15).keys()).slice(1);
+
+  return React.createElement("div", {
     className: "flower",
     style: {
       display: "flex",
@@ -28362,43 +28379,19 @@ var Flower = function Flower() {
       left: "50%",
       alignItems: "center"
     }
-  }, /*#__PURE__*/React.createElement(Pedal_1.default, null));
-};
-
-exports.default = Flower;
-},{"react":"node_modules/react/index.js","./Pedal":"componenents/Pedal.tsx"}],"componenents/Triangle.tsx":[function(require,module,exports) {
-"use strict";
-
-var __importStar = this && this.__importStar || function (mod) {
-  if (mod && mod.__esModule) return mod;
-  var result = {};
-  if (mod != null) for (var k in mod) {
-    if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
-  }
-  result["default"] = mod;
-  return result;
-};
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var React = __importStar(require("react"));
-
-var Triangle = function Triangle() {
-  return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
-    className: "arrow-up"
-  }), /*#__PURE__*/React.createElement("div", {
-    className: "arrow-down"
-  }), /*#__PURE__*/React.createElement("div", {
-    className: "arrow-left"
-  }), /*#__PURE__*/React.createElement("div", {
-    className: "arrow-right"
+  }, nums.map(function (num) {
+    return React.createElement(Pedal_1.default, {
+      rotateAmount: num * 15,
+      height: num * 10,
+      width: num * 10,
+      top: 0,
+      left: 0
+    });
   }));
 };
 
-exports.default = Triangle;
-},{"react":"node_modules/react/index.js"}],"App.tsx":[function(require,module,exports) {
+exports.default = Flower;
+},{"react":"node_modules/react/index.js","./Pedal":"componenents/Pedal.tsx"}],"App.tsx":[function(require,module,exports) {
 "use strict";
 
 var __importStar = this && this.__importStar || function (mod) {
@@ -28425,14 +28418,12 @@ var React = __importStar(require("react"));
 
 var Flower_1 = __importDefault(require("./componenents/Flower"));
 
-var Triangle_1 = __importDefault(require("./componenents/Triangle"));
-
 var App = function App() {
-  return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(Triangle_1.default, null), /*#__PURE__*/React.createElement(Flower_1.default, null));
+  return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(Flower_1.default, null));
 };
 
 exports.default = App;
-},{"react":"node_modules/react/index.js","./componenents/Flower":"componenents/Flower.tsx","./componenents/Triangle":"componenents/Triangle.tsx"}],"index.tsx":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","./componenents/Flower":"componenents/Flower.tsx"}],"index.tsx":[function(require,module,exports) {
 "use strict";
 
 var __importStar = this && this.__importStar || function (mod) {
