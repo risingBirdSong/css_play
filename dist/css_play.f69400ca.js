@@ -28321,10 +28321,10 @@ var Pedal = function Pedal(props) {
       left: props.left,
       transform: "rotate(".concat(props.rotateAmount, "deg)"),
       borderTopLeftRadius: "1%",
-      borderTopRightRadius: "100%",
+      borderTopRightRadius: "90%",
       borderBottomRightRadius: "1%",
       borderBottomLeftRadius: "1%",
-      borderTop: "4px dashed ".concat(colStr)
+      borderTop: "5px double ".concat(colStr)
     }
   });
 };

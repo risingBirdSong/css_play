@@ -25,10 +25,10 @@ const Pedal = (props: PedalProps) => {
         left: props.left,
         transform: `rotate(${props.rotateAmount}deg)`,
         borderTopLeftRadius: "1%",
-        borderTopRightRadius: "100%",
+        borderTopRightRadius: "90%",
         borderBottomRightRadius: "1%",
         borderBottomLeftRadius: "1%",
-        borderTop: `4px dashed ${colStr}`,
+        borderTop: `5px double ${colStr}`,
       }}
     ></div>
   );
