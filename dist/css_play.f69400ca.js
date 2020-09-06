@@ -28312,7 +28312,7 @@ var Pedal = function Pedal(props) {
     className: "pedal",
     style: {
       // backgroundColor: `rgb(100, 1, 10)`,
-      // backgroundColor: colStr,
+      backgroundColor: colStr,
       padding: "15px",
       height: props.height,
       width: props.width,
@@ -28385,7 +28385,7 @@ var Flower = function Flower() {
     }
   }, nums.map(function (num) {
     return React.createElement(Pedal_1.default, {
-      rgbColors: [255 % (255 - num * 2), 1, 255 % num * 2],
+      rgbColors: [255 % num * 9, 1, 130],
       rotateAmount: num,
       height: 250 - num,
       width: 100 - num,

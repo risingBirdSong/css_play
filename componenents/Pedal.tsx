@@ -17,7 +17,7 @@ const Pedal = (props: PedalProps) => {
       className="pedal"
       style={{
         // backgroundColor: `rgb(100, 1, 10)`,
-        // backgroundColor: colStr,
+        backgroundColor: colStr,
         padding: "15px",
         height: props.height,
         width: props.width,
