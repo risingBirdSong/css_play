@@ -15,7 +15,7 @@ const Pedal = (props: PedalProps) => {
 
   return (
     <div
-      className={`idx${props.idx}`}
+      // className={`idx${props.idx}`}
       style={{
         // backgroundColor: `rgb(100, 1, 10)`,
         // padding: "100px",
@@ -23,12 +23,14 @@ const Pedal = (props: PedalProps) => {
         position: "absolute",
         border: "5px solid gold",
         height: props.backAndForth,
-        width: 100,
+        width: props.backAndForth,
         top: props.top,
         left: props.left,
         borderRadius: "100%",
-        borderTop: `${props.backAndForth}px solid red`,
-        borderBottom: `${props.backAndForth}px solid purple`,
+        borderTop: `10px solid blue`,
+        // borderRight: `50px solid transparent`,
+        // borderBottom: `50px solid transparent`,
+        // borderBottom: `50px solid purple`,
 
         // transform: ``,
         transform: `translate(${props.transX}px, ${props.transY}px) rotate(${props.rotateAmount}deg)`,
