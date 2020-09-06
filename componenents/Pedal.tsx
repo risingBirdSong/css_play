@@ -27,6 +27,7 @@ const Pedal = (props: PedalProps) => {
         left: props.left,
         borderRadius: "100%",
         borderTop: `5px solid ${colStr}`,
+        borderBottom: `1px solid ${colStr}`,
         // transform: ``,
         transform: `translate(${props.transX}px, ${props.transY}px) rotate(${props.rotateAmount}deg)`,
         //@ts-ignore
