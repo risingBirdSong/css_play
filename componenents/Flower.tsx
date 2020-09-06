@@ -58,7 +58,7 @@ const Flower = () => {
             idx={idx}
             transX={radians_to_degrees(Math.sin(num))}
             transY={radians_to_degrees(Math.cos(num))}
-            rgbColors={[backAndForth, 10, backAndForth / 2]}
+            rgbColors={[backAndForth, 10, backAndForth / 2 + 100]}
             rotateAmount={n}
             backAndForth={backAndForth}
             top={1}
