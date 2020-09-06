@@ -14,7 +14,7 @@ const Flower = () => {
   useEffect(() => {
     const timing = setTimeout(() => {
       setN((prev) => ++prev);
-      if (n % 300 === 0) {
+      if (n % 255 === 0) {
         setRising((prv) => !prv);
       }
       if (rising) {
@@ -26,7 +26,7 @@ const Flower = () => {
       if (n % 10 === 0) {
         let stop = true;
       }
-      if (n > 2000) {
+      if (n > 3000) {
         setClearTimer(true);
       }
     }, delay);
@@ -55,12 +55,12 @@ const Flower = () => {
         }
         return (
           <Pedal
-            transX={radians_to_degrees(Math.cos(num)) * 2}
-            transY={radians_to_degrees(Math.cos(num) * 2)}
-            rgbColors={[(n / 2) % 255, 50, (n * 2) % 255]}
+            transX={radians_to_degrees(Math.sin(num))}
+            transY={radians_to_degrees(Math.cos(num))}
+            rgbColors={[backAndForth, 10, backAndForth / 2]}
             rotateAmount={radians_to_degrees(Math.cos(num))}
-            height={100 + backAndForth}
-            width={100 + backAndForth}
+            height={backAndForth}
+            width={backAndForth}
             top={1}
             left={1}
           />

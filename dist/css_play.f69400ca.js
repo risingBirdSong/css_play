@@ -28343,7 +28343,11 @@ var Pedal = function Pedal(props) {
       top: props.top,
       left: props.left,
       borderRadius: "100%",
-      boxShadow: "1px 1px 10px ".concat(colStr),
+      borderTop: "5px dotted ".concat(colStr),
+      borderBottom: "5px dotted cornflowerblue",
+      // borderLeft: "5px dotted blueviolet",
+      // borderRight: "5px solid blueviolet",
+      // boxShadow: `1px 1px 10px  ${colStr}`,
       // transform: ``,
       transform: "translate(".concat(props.transX, "px, ").concat(props.transY, "px) rotate(").concat(props.rotateAmount, "deg)")
     }
@@ -28466,7 +28470,7 @@ var Flower = function Flower() {
         return ++prev;
       });
 
-      if (n % 300 === 0) {
+      if (n % 255 === 0) {
         setRising(function (prv) {
           return !prv;
         });
@@ -28488,7 +28492,7 @@ var Flower = function Flower() {
         var stop = true;
       }
 
-      if (n > 2000) {
+      if (n > 3000) {
         setClearTimer(true);
       }
     }, delay);
@@ -28515,12 +28519,12 @@ var Flower = function Flower() {
     }
 
     return React.createElement(Pedal_1.default, {
-      transX: radians_to_degrees(Math.cos(num)) * 2,
-      transY: radians_to_degrees(Math.cos(num) * 2),
-      rgbColors: [n / 2 % 255, 50, n * 2 % 255],
+      transX: radians_to_degrees(Math.sin(num)),
+      transY: radians_to_degrees(Math.cos(num)),
+      rgbColors: [backAndForth, 10, backAndForth / 2],
       rotateAmount: radians_to_degrees(Math.cos(num)),
-      height: 100 + backAndForth,
-      width: 100 + backAndForth,
+      height: backAndForth,
+      width: backAndForth,
       top: 1,
       left: 1
     });
