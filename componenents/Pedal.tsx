@@ -12,7 +12,6 @@ export interface PedalProps {
 const Pedal = (props: PedalProps) => {
   let clrs = props.rgbColors;
   let colStr = `rgb(${clrs[0]},${clrs[1]},${clrs[2]})`;
-  console.log("clrs strs", colStr);
   return (
     <div
       className="pedal"
@@ -26,8 +25,7 @@ const Pedal = (props: PedalProps) => {
         top: props.top,
         left: props.left,
         borderRadius: "100%",
-        borderTop: `5px solid ${colStr}`,
-        borderBottom: `1px solid ${colStr}`,
+        boxShadow: `1px 1px 10px ${colStr}`,
         // transform: ``,
         transform: `translate(${props.transX}px, ${props.transY}px) rotate(${props.rotateAmount}deg)`,
         //@ts-ignore

@@ -28307,7 +28307,6 @@ var React = __importStar(require("react"));
 var Pedal = function Pedal(props) {
   var clrs = props.rgbColors;
   var colStr = "rgb(".concat(clrs[0], ",").concat(clrs[1], ",").concat(clrs[2], ")");
-  console.log("clrs strs", colStr);
   return React.createElement("div", {
     className: "pedal",
     style: {
@@ -28320,8 +28319,7 @@ var Pedal = function Pedal(props) {
       top: props.top,
       left: props.left,
       borderRadius: "100%",
-      borderTop: "5px solid ".concat(colStr),
-      borderBottom: "1px solid ".concat(colStr),
+      boxShadow: "1px 1px 10px ".concat(colStr),
       // transform: ``,
       transform: "translate(".concat(props.transX, "px, ").concat(props.transY, "px) rotate(").concat(props.rotateAmount, "deg)")
     }
@@ -28336,13 +28334,21 @@ function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableTo
 
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
 function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
 
 function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
 
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 var __importStar = this && this.__importStar || function (mod) {
   if (mod && mod.__esModule) return mod;
@@ -28366,11 +28372,31 @@ Object.defineProperty(exports, "__esModule", {
 
 var React = __importStar(require("react"));
 
+var react_1 = require("react");
+
 var Pedal_1 = __importDefault(require("./Pedal"));
 
 var Flower = function Flower() {
-  var nums = _toConsumableArray(Array(100).keys()).slice(1);
+  var _react_1$useState = react_1.useState(100),
+      _react_1$useState2 = _slicedToArray(_react_1$useState, 2),
+      n = _react_1$useState2[0],
+      setN = _react_1$useState2[1];
 
+  console.log("n", n);
+
+  var _react_1$useState3 = react_1.useState(_toConsumableArray(Array(n).keys()).slice(n - 99)),
+      _react_1$useState4 = _slicedToArray(_react_1$useState3, 2),
+      nums = _react_1$useState4[0],
+      setNums = _react_1$useState4[1];
+
+  setTimeout(function () {
+    setN(function (preV) {
+      return preV + 1;
+    });
+    setNums(_toConsumableArray(Array(n).keys()).map(function (num) {
+      return num + n;
+    }).slice(n - 99));
+  }, 1);
   return React.createElement("div", {
     className: "flower",
     style: {
@@ -28389,10 +28415,10 @@ var Flower = function Flower() {
     }
 
     return React.createElement(Pedal_1.default, {
-      transX: radians_to_degrees(Math.cos(num)) * 3,
-      transY: radians_to_degrees(Math.sin(num)) * 3,
+      transX: radians_to_degrees(Math.cos(num)) * 2,
+      transY: radians_to_degrees(Math.sin(num)) * 2,
       rgbColors: [num * 1.3 + 50, 1, 255 % (num * 2) + 150],
-      rotateAmount: radians_to_degrees(Math.sin(num)),
+      rotateAmount: radians_to_degrees(Math.cos(num)) * 2 + n,
       height: 100,
       width: 50,
       top: 1,
