@@ -1,7 +1,7 @@
 import * as React from "react";
 import Pedal from "./Pedal";
 const Flower = () => {
-  let nums = [...Array(13).keys()].slice(1);
+  let nums = [...Array(100).keys()].slice(1);
   return (
     <div
       className="flower"
@@ -18,9 +18,10 @@ const Flower = () => {
       {nums.map((num) => {
         return (
           <Pedal
-            rotateAmount={num * 30}
-            height={250}
-            width={50}
+            rgbColors={[255 % (255 - num * 2), 1, (255 % num) * 2]}
+            rotateAmount={num}
+            height={250 - num}
+            width={100 - num}
             top={0}
             left={0}
           />

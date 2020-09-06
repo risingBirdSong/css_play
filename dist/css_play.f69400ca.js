@@ -28305,10 +28305,14 @@ Object.defineProperty(exports, "__esModule", {
 var React = __importStar(require("react"));
 
 var Pedal = function Pedal(props) {
+  var clrs = props.rgbColors;
+  var colStr = "rgb(".concat(clrs[0], ",").concat(clrs[1], ",").concat(clrs[2], ")");
+  console.log("clrs strs", colStr);
   return React.createElement("div", {
     className: "pedal",
     style: {
-      // backgroundColor: "blue",
+      // backgroundColor: `rgb(100, 1, 10)`,
+      // backgroundColor: colStr,
       padding: "15px",
       height: props.height,
       width: props.width,
@@ -28366,7 +28370,7 @@ var React = __importStar(require("react"));
 var Pedal_1 = __importDefault(require("./Pedal"));
 
 var Flower = function Flower() {
-  var nums = _toConsumableArray(Array(13).keys()).slice(1);
+  var nums = _toConsumableArray(Array(100).keys()).slice(1);
 
   return React.createElement("div", {
     className: "flower",
@@ -28381,9 +28385,10 @@ var Flower = function Flower() {
     }
   }, nums.map(function (num) {
     return React.createElement(Pedal_1.default, {
-      rotateAmount: num * 30,
-      height: 250,
-      width: 50,
+      rgbColors: [255 % (255 - num * 2), 1, 255 % num * 2],
+      rotateAmount: num,
+      height: 250 - num,
+      width: 100 - num,
       top: 0,
       left: 0
     });
