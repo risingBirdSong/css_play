@@ -9,7 +9,7 @@ const Flower = () => {
   setTimeout(() => {
     setN((preV) => preV + 1);
     setNums([...Array(n).keys()].map((num) => num + n).slice(n - 99));
-  }, 1);
+  }, 20);
   return (
     <div
       className="flower"
@@ -31,11 +31,11 @@ const Flower = () => {
         return (
           <Pedal
             transX={radians_to_degrees(Math.cos(num)) * 2}
-            transY={radians_to_degrees(Math.sin(num)) * 2}
-            rgbColors={[num * 1.3 + 50, 1, (255 % (num * 2)) + 150]}
+            transY={radians_to_degrees(Math.sin(num) * 3)}
+            rgbColors={[(num / 2) % 255, 50, (num * 2) % 255]}
             rotateAmount={radians_to_degrees(Math.cos(num)) * 2 + n}
             height={100}
-            width={50}
+            width={300 % n}
             top={1}
             left={1}
           />

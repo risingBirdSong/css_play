@@ -28307,6 +28307,7 @@ var React = __importStar(require("react"));
 var Pedal = function Pedal(props) {
   var clrs = props.rgbColors;
   var colStr = "rgb(".concat(clrs[0], ",").concat(clrs[1], ",").concat(clrs[2], ")");
+  console.log("col str", colStr);
   return React.createElement("div", {
     className: "pedal",
     style: {
@@ -28350,13 +28351,37 @@ function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
+var __createBinding = this && this.__createBinding || (Object.create ? function (o, m, k, k2) {
+  if (k2 === undefined) k2 = k;
+  Object.defineProperty(o, k2, {
+    enumerable: true,
+    get: function get() {
+      return m[k];
+    }
+  });
+} : function (o, m, k, k2) {
+  if (k2 === undefined) k2 = k;
+  o[k2] = m[k];
+});
+
+var __setModuleDefault = this && this.__setModuleDefault || (Object.create ? function (o, v) {
+  Object.defineProperty(o, "default", {
+    enumerable: true,
+    value: v
+  });
+} : function (o, v) {
+  o["default"] = v;
+});
+
 var __importStar = this && this.__importStar || function (mod) {
   if (mod && mod.__esModule) return mod;
   var result = {};
   if (mod != null) for (var k in mod) {
-    if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
+    if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
   }
-  result["default"] = mod;
+
+  __setModuleDefault(result, mod);
+
   return result;
 };
 
@@ -28396,7 +28421,7 @@ var Flower = function Flower() {
     setNums(_toConsumableArray(Array(n).keys()).map(function (num) {
       return num + n;
     }).slice(n - 99));
-  }, 1);
+  }, 20);
   return React.createElement("div", {
     className: "flower",
     style: {
@@ -28416,11 +28441,11 @@ var Flower = function Flower() {
 
     return React.createElement(Pedal_1.default, {
       transX: radians_to_degrees(Math.cos(num)) * 2,
-      transY: radians_to_degrees(Math.sin(num)) * 2,
-      rgbColors: [num * 1.3 + 50, 1, 255 % (num * 2) + 150],
+      transY: radians_to_degrees(Math.sin(num) * 3),
+      rgbColors: [num / 2 % 255, 50, num * 2 % 255],
       rotateAmount: radians_to_degrees(Math.cos(num)) * 2 + n,
       height: 100,
-      width: 50,
+      width: 300 % n,
       top: 1,
       left: 1
     });
@@ -28518,7 +28543,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56210" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56373" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
