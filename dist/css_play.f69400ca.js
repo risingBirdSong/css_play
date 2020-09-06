@@ -28324,7 +28324,7 @@ var Pedal = function Pedal(props) {
       borderTopRightRadius: "100%",
       borderBottomRightRadius: "1%",
       borderBottomLeftRadius: "1%",
-      borderTop: "4px dotted ".concat(colStr)
+      borderTop: "4px double ".concat(colStr)
     }
   });
 };
