@@ -17,7 +17,7 @@ const Pedal = (props: PedalProps) => {
       className="pedal"
       style={{
         // backgroundColor: `rgb(100, 1, 10)`,
-        backgroundColor: colStr,
+        // backgroundColor: colStr,
         padding: "15px",
         height: props.height,
         width: props.width,
@@ -27,9 +27,11 @@ const Pedal = (props: PedalProps) => {
         transform: `rotate(${props.rotateAmount}deg)`,
         borderTopLeftRadius: "50%",
         borderTopRightRadius: "50%",
-        borderBottomRightRadius: "90%",
-        borderBottomLeftRadius: "90%",
+        borderBottomRightRadius: "100%",
+        borderBottomLeftRadius: "100%",
         border: "1px solid black",
+        borderBottom: "10px solid transparent",
+        borderTop: "10px solid transparent",
       }}
     ></div>
   );

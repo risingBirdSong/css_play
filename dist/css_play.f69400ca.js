@@ -28312,7 +28312,7 @@ var Pedal = function Pedal(props) {
     className: "pedal",
     style: {
       // backgroundColor: `rgb(100, 1, 10)`,
-      backgroundColor: colStr,
+      // backgroundColor: colStr,
       padding: "15px",
       height: props.height,
       width: props.width,
@@ -28322,9 +28322,11 @@ var Pedal = function Pedal(props) {
       transform: "rotate(".concat(props.rotateAmount, "deg)"),
       borderTopLeftRadius: "50%",
       borderTopRightRadius: "50%",
-      borderBottomRightRadius: "90%",
-      borderBottomLeftRadius: "90%",
-      border: "1px solid black"
+      borderBottomRightRadius: "100%",
+      borderBottomLeftRadius: "100%",
+      border: "1px solid black",
+      borderBottom: "10px solid transparent",
+      borderTop: "10px solid transparent"
     }
   });
 };
@@ -28370,7 +28372,7 @@ var React = __importStar(require("react"));
 var Pedal_1 = __importDefault(require("./Pedal"));
 
 var Flower = function Flower() {
-  var nums = _toConsumableArray(Array(100).keys()).slice(1);
+  var nums = _toConsumableArray(Array(20).keys()).slice(1);
 
   return React.createElement("div", {
     className: "flower",
@@ -28379,16 +28381,16 @@ var Flower = function Flower() {
       justifyContent: "center",
       position: "absolute",
       flexDirection: "column",
-      top: "50%",
+      top: "30%",
       left: "50%",
       alignItems: "center"
     }
   }, nums.map(function (num) {
     return React.createElement(Pedal_1.default, {
       rgbColors: [255 % num * 9, 1, 130],
-      rotateAmount: num,
+      rotateAmount: num * 2,
       height: 250 - num,
-      width: 100 - num,
+      width: 10,
       top: 0,
       left: 0
     });

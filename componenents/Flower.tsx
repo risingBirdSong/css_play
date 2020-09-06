@@ -1,7 +1,7 @@
 import * as React from "react";
 import Pedal from "./Pedal";
 const Flower = () => {
-  let nums = [...Array(100).keys()].slice(1);
+  let nums = [...Array(20).keys()].slice(1);
   return (
     <div
       className="flower"
@@ -10,7 +10,7 @@ const Flower = () => {
         justifyContent: "center",
         position: "absolute",
         flexDirection: "column",
-        top: "50%",
+        top: "30%",
         left: "50%",
         alignItems: "center",
       }}
@@ -19,9 +19,9 @@ const Flower = () => {
         return (
           <Pedal
             rgbColors={[(255 % num) * 9, 1, 130]}
-            rotateAmount={num}
+            rotateAmount={num * 2}
             height={250 - num}
-            width={100 - num}
+            width={10}
             top={0}
             left={0}
           />
