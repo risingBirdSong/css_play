@@ -28336,7 +28336,8 @@ var Pedal = function Pedal(props) {
     style: {
       // backgroundColor: `rgb(100, 1, 10)`,
       // backgroundColor: colStr,
-      padding: "15px",
+      // padding: "100px",
+      margin: "80px",
       height: props.height,
       width: props.width,
       position: "absolute",
@@ -28519,7 +28520,7 @@ var Flower = function Flower() {
     }
 
     return React.createElement(Pedal_1.default, {
-      transX: radians_to_degrees(Math.sin(num)) * 2,
+      transX: radians_to_degrees(Math.sin(num)),
       transY: radians_to_degrees(Math.cos(num)),
       rgbColors: [backAndForth, 10, backAndForth / 2],
       rotateAmount: radians_to_degrees(Math.cos(num)),
