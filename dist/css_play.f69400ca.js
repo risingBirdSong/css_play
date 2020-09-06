@@ -28432,38 +28432,33 @@ var Flower = function Flower() {
 
   var _react_1$useState3 = react_1.useState(1),
       _react_1$useState4 = _slicedToArray(_react_1$useState3, 2),
-      counter = _react_1$useState4[0],
-      setCounter = _react_1$useState4[1];
+      backAndForth = _react_1$useState4[0],
+      setbackAndForth = _react_1$useState4[1];
 
-  var _react_1$useState5 = react_1.useState(1),
+  var _react_1$useState5 = react_1.useState(10),
       _react_1$useState6 = _slicedToArray(_react_1$useState5, 2),
-      backAndForth = _react_1$useState6[0],
-      setbackAndForth = _react_1$useState6[1];
+      delay = _react_1$useState6[0],
+      setDelay = _react_1$useState6[1];
 
-  var _react_1$useState7 = react_1.useState(10),
+  var _react_1$useState7 = react_1.useState(false),
       _react_1$useState8 = _slicedToArray(_react_1$useState7, 2),
-      delay = _react_1$useState8[0],
-      setDelay = _react_1$useState8[1];
+      clearTimer = _react_1$useState8[0],
+      setClearTimer = _react_1$useState8[1];
 
-  var _react_1$useState9 = react_1.useState(false),
+  var _react_1$useState9 = react_1.useState(true),
       _react_1$useState10 = _slicedToArray(_react_1$useState9, 2),
-      clearTimer = _react_1$useState10[0],
-      setClearTimer = _react_1$useState10[1];
+      rising = _react_1$useState10[0],
+      setRising = _react_1$useState10[1];
 
-  var _react_1$useState11 = react_1.useState(true),
+  var _react_1$useState11 = react_1.useState(_toConsumableArray(Array(n).keys())),
       _react_1$useState12 = _slicedToArray(_react_1$useState11, 2),
-      rising = _react_1$useState12[0],
-      setRising = _react_1$useState12[1];
+      nums = _react_1$useState12[0],
+      setNums = _react_1$useState12[1];
 
-  var _react_1$useState13 = react_1.useState(_toConsumableArray(Array(n).keys())),
+  var _react_1$useState13 = react_1.useState(false),
       _react_1$useState14 = _slicedToArray(_react_1$useState13, 2),
-      nums = _react_1$useState14[0],
-      setNums = _react_1$useState14[1];
-
-  var _react_1$useState15 = react_1.useState(false),
-      _react_1$useState16 = _slicedToArray(_react_1$useState15, 2),
-      restart = _react_1$useState16[0],
-      setRestart = _react_1$useState16[1];
+      restart = _react_1$useState14[0],
+      setRestart = _react_1$useState14[1];
 
   react_1.useEffect(function () {
     var timing = setTimeout(function () {
@@ -28524,8 +28519,8 @@ var Flower = function Flower() {
       transY: radians_to_degrees(Math.sin(num) * 3),
       rgbColors: [n / 2 % 255, 50, n * 2 % 255],
       rotateAmount: radians_to_degrees(Math.cos(num)) * 2 + n,
-      height: 200 + backAndForth * 2,
-      width: 300 + backAndForth,
+      height: 200 + backAndForth,
+      width: 200 + backAndForth,
       top: 1,
       left: 1
     });
