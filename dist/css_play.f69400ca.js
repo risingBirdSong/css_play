@@ -28288,13 +28288,37 @@ if ("development" === 'production') {
 },{"./cjs/react-dom.development.js":"node_modules/react-dom/cjs/react-dom.development.js"}],"componenents/Pedal.tsx":[function(require,module,exports) {
 "use strict";
 
+var __createBinding = this && this.__createBinding || (Object.create ? function (o, m, k, k2) {
+  if (k2 === undefined) k2 = k;
+  Object.defineProperty(o, k2, {
+    enumerable: true,
+    get: function get() {
+      return m[k];
+    }
+  });
+} : function (o, m, k, k2) {
+  if (k2 === undefined) k2 = k;
+  o[k2] = m[k];
+});
+
+var __setModuleDefault = this && this.__setModuleDefault || (Object.create ? function (o, v) {
+  Object.defineProperty(o, "default", {
+    enumerable: true,
+    value: v
+  });
+} : function (o, v) {
+  o["default"] = v;
+});
+
 var __importStar = this && this.__importStar || function (mod) {
   if (mod && mod.__esModule) return mod;
   var result = {};
   if (mod != null) for (var k in mod) {
-    if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
+    if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
   }
-  result["default"] = mod;
+
+  __setModuleDefault(result, mod);
+
   return result;
 };
 
@@ -28307,7 +28331,6 @@ var React = __importStar(require("react"));
 var Pedal = function Pedal(props) {
   var clrs = props.rgbColors;
   var colStr = "rgb(".concat(clrs[0], ",").concat(clrs[1], ",").concat(clrs[2], ")");
-  console.log("col str", colStr);
   return React.createElement("div", {
     className: "pedal",
     style: {
@@ -28402,26 +28425,65 @@ var react_1 = require("react");
 var Pedal_1 = __importDefault(require("./Pedal"));
 
 var Flower = function Flower() {
-  var _react_1$useState = react_1.useState(100),
+  var _react_1$useState = react_1.useState(50),
       _react_1$useState2 = _slicedToArray(_react_1$useState, 2),
       n = _react_1$useState2[0],
       setN = _react_1$useState2[1];
 
   console.log("n", n);
 
-  var _react_1$useState3 = react_1.useState(_toConsumableArray(Array(n).keys()).slice(n - 99)),
+  var _react_1$useState3 = react_1.useState(1),
       _react_1$useState4 = _slicedToArray(_react_1$useState3, 2),
-      nums = _react_1$useState4[0],
-      setNums = _react_1$useState4[1];
+      backAndForth = _react_1$useState4[0],
+      setbackAndForth = _react_1$useState4[1];
 
-  setTimeout(function () {
-    setN(function (preV) {
-      return preV + 1;
-    });
-    setNums(_toConsumableArray(Array(n).keys()).map(function (num) {
-      return num + n;
-    }).slice(n - 99));
-  }, 20);
+  console.log("back and forth", backAndForth);
+
+  var _react_1$useState5 = react_1.useState(true),
+      _react_1$useState6 = _slicedToArray(_react_1$useState5, 2),
+      rising = _react_1$useState6[0],
+      setRising = _react_1$useState6[1];
+
+  var _react_1$useState7 = react_1.useState(_toConsumableArray(Array(n).keys()).slice(n - 99)),
+      _react_1$useState8 = _slicedToArray(_react_1$useState7, 2),
+      nums = _react_1$useState8[0],
+      setNums = _react_1$useState8[1];
+
+  react_1.useEffect(function () {
+    var timer = setInterval(function () {
+      setN(function (preV) {
+        return preV + 1;
+      });
+
+      if (backAndForth >= 50) {
+        setRising(function (prev) {
+          return !prev;
+        });
+      } else if (backAndForth <= 0) {
+        setRising(function (prev) {
+          return !prev;
+        });
+      }
+
+      if (rising) {
+        setbackAndForth(function (prev) {
+          return ++prev;
+        });
+      } else if (!rising) {
+        setbackAndForth(function (prev) {
+          return --prev;
+        });
+      }
+
+      setNums(_toConsumableArray(Array(n).keys()).map(function (num) {
+        return num + n;
+      }).slice(n - 99));
+    }, 30); // clearing interval
+
+    return function () {
+      return clearInterval(timer);
+    };
+  });
   return React.createElement("div", {
     className: "flower",
     style: {
@@ -28444,8 +28506,8 @@ var Flower = function Flower() {
       transY: radians_to_degrees(Math.sin(num) * 3),
       rgbColors: [num / 2 % 255, 50, num * 2 % 255],
       rotateAmount: radians_to_degrees(Math.cos(num)) * 2 + n,
-      height: 100,
-      width: 300 % n,
+      height: 200 + backAndForth * 2,
+      width: 300 + backAndForth,
       top: 1,
       left: 1
     });
@@ -28543,7 +28605,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56373" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57676" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

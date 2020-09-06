@@ -1,15 +1,34 @@
 import * as React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Pedal from "./Pedal";
 const Flower = () => {
-  const [n, setN] = useState(100);
+  const [n, setN] = useState(50);
   console.log("n", n);
+  const [backAndForth, setbackAndForth] = useState(1);
+  console.log("back and forth", backAndForth);
 
+  const [rising, setRising] = useState(true);
   let [nums, setNums] = useState([...Array(n).keys()].slice(n - 99));
-  setTimeout(() => {
-    setN((preV) => preV + 1);
-    setNums([...Array(n).keys()].map((num) => num + n).slice(n - 99));
-  }, 20);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setN((preV) => preV + 1);
+      if (backAndForth >= 50) {
+        setRising((prev) => !prev);
+      } else if (backAndForth <= 0) {
+        setRising((prev) => !prev);
+      }
+      if (rising) {
+        setbackAndForth((prev) => ++prev);
+      } else if (!rising) {
+        setbackAndForth((prev) => --prev);
+      }
+      setNums([...Array(n).keys()].map((num) => num + n).slice(n - 99));
+    }, 30);
+    // clearing interval
+    return () => clearInterval(timer);
+  });
+
   return (
     <div
       className="flower"
@@ -34,8 +53,8 @@ const Flower = () => {
             transY={radians_to_degrees(Math.sin(num) * 3)}
             rgbColors={[(num / 2) % 255, 50, (num * 2) % 255]}
             rotateAmount={radians_to_degrees(Math.cos(num)) * 2 + n}
-            height={100}
-            width={300 % n}
+            height={200 + backAndForth * 2}
+            width={300 + backAndForth}
             top={1}
             left={1}
           />
