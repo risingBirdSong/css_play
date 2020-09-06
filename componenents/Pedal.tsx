@@ -28,7 +28,7 @@ const Pedal = (props: PedalProps) => {
         borderTopRightRadius: "100%",
         borderBottomRightRadius: "1%",
         borderBottomLeftRadius: "1%",
-        borderTop: `4px double ${colStr}`,
+        borderTop: `4px dashed ${colStr}`,
       }}
     ></div>
   );

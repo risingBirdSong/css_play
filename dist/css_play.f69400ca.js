@@ -28324,7 +28324,7 @@ var Pedal = function Pedal(props) {
       borderTopRightRadius: "100%",
       borderBottomRightRadius: "1%",
       borderBottomLeftRadius: "1%",
-      borderTop: "4px double ".concat(colStr)
+      borderTop: "4px dashed ".concat(colStr)
     }
   });
 };
@@ -28386,7 +28386,7 @@ var Flower = function Flower() {
   }, nums.map(function (num) {
     return React.createElement(Pedal_1.default, {
       rgbColors: [num * 1.3 + 50, 1, 255 % (num * 2) + 150],
-      rotateAmount: num * 3,
+      rotateAmount: num * 4,
       height: 400 + num,
       width: 50 + num * 2,
       top: num * 3,
