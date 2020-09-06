@@ -1,5 +1,5 @@
 import * as React from "react";
-interface PedalProps {
+export interface PedalProps {
   top: number;
   left: number;
   rotateAmount: number;
