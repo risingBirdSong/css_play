@@ -16,14 +16,20 @@ const Flower = () => {
       }}
     >
       {nums.map((num) => {
+        function radians_to_degrees(radians: number) {
+          var pi = Math.PI;
+          return radians * (180 / pi);
+        }
         return (
           <Pedal
+            transX={radians_to_degrees(Math.cos(num)) * 3}
+            transY={radians_to_degrees(Math.sin(num)) * 3}
             rgbColors={[num * 1.3 + 50, 1, (255 % (num * 2)) + 150]}
-            rotateAmount={num * 6}
-            height={400 + num}
-            width={50 + num * 2}
-            top={num * 3}
-            left={num * 3}
+            rotateAmount={num * 3}
+            height={100}
+            width={50}
+            top={1}
+            left={1}
           />
         );
       })}

@@ -28319,12 +28319,10 @@ var Pedal = function Pedal(props) {
       position: "absolute",
       top: props.top,
       left: props.left,
-      transform: "rotate(".concat(props.rotateAmount, "deg)"),
-      borderTopLeftRadius: "1%",
-      borderTopRightRadius: "90%",
-      borderBottomRightRadius: "1%",
-      borderBottomLeftRadius: "1%",
-      borderTop: "5px double ".concat(colStr)
+      borderRadius: "100%",
+      borderTop: "5px solid black",
+      // transform: ``,
+      transform: "translate(".concat(props.transX, "px, ").concat(props.transY, "px) rotate(").concat(props.rotateAmount, "deg)")
     }
   });
 };
@@ -28384,13 +28382,20 @@ var Flower = function Flower() {
       alignItems: "center"
     }
   }, nums.map(function (num) {
+    function radians_to_degrees(radians) {
+      var pi = Math.PI;
+      return radians * (180 / pi);
+    }
+
     return React.createElement(Pedal_1.default, {
+      transX: radians_to_degrees(Math.cos(num)) * 3,
+      transY: radians_to_degrees(Math.sin(num)) * 3,
       rgbColors: [num * 1.3 + 50, 1, 255 % (num * 2) + 150],
-      rotateAmount: num * 6,
-      height: 400 + num,
-      width: 50 + num * 2,
-      top: num * 3,
-      left: num * 3
+      rotateAmount: num * 3,
+      height: 100,
+      width: 50,
+      top: 1,
+      left: 1
     });
   }));
 };

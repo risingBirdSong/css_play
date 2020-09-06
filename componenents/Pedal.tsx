@@ -6,6 +6,8 @@ export interface PedalProps {
   height: number;
   width: number;
   rgbColors: [number, number, number];
+  transX: number;
+  transY: number;
 }
 const Pedal = (props: PedalProps) => {
   let clrs = props.rgbColors;
@@ -23,12 +25,12 @@ const Pedal = (props: PedalProps) => {
         position: "absolute",
         top: props.top,
         left: props.left,
-        transform: `rotate(${props.rotateAmount}deg)`,
-        borderTopLeftRadius: "1%",
-        borderTopRightRadius: "90%",
-        borderBottomRightRadius: "1%",
-        borderBottomLeftRadius: "1%",
-        borderTop: `5px double ${colStr}`,
+        borderRadius: "100%",
+        borderTop: "5px solid black",
+        // transform: ``,
+        transform: `translate(${props.transX}px, ${props.transY}px) rotate(${props.rotateAmount}deg)`,
+        //@ts-ignore
+        // transform: `rotate(${props.rotateAmount}deg)`,
       }}
     ></div>
   );
