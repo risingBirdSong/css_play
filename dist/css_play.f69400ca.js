@@ -28386,7 +28386,7 @@ var Flower = function Flower() {
   }, nums.map(function (num) {
     return React.createElement(Pedal_1.default, {
       rgbColors: [num * 1.3 + 50, 1, 255 % (num * 2) + 150],
-      rotateAmount: (num + num) * 3,
+      rotateAmount: num * 6,
       height: 400 + num,
       width: 50 + num * 2,
       top: num * 3,
