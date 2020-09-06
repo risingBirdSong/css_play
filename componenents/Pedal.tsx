@@ -11,7 +11,6 @@ const Pedal = (props: PedalProps) => {
   let clrs = props.rgbColors;
   let colStr = `rgb(${clrs[0]},${clrs[1]},${clrs[2]})`;
   console.log("clrs strs", colStr);
-
   return (
     <div
       className="pedal"
@@ -25,14 +24,11 @@ const Pedal = (props: PedalProps) => {
         top: props.top,
         left: props.left,
         transform: `rotate(${props.rotateAmount}deg)`,
-        borderTopLeftRadius: "100%",
-        borderTopRightRadius: "100%",
+        borderTopLeftRadius: "5%",
+        borderTopRightRadius: "80%",
         borderBottomRightRadius: "100%",
         borderBottomLeftRadius: "100%",
-        borderBottom: "100px solid transparent",
-        borderTop: `50px groove ${colStr}`,
-        borderLeft: `3px dotted purple`,
-        borderRight: `5px solid ${colStr}`,
+        borderTop: `4px solid ${colStr}`,
       }}
     ></div>
   );

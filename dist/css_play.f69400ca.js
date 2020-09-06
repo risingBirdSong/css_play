@@ -28320,14 +28320,11 @@ var Pedal = function Pedal(props) {
       top: props.top,
       left: props.left,
       transform: "rotate(".concat(props.rotateAmount, "deg)"),
-      borderTopLeftRadius: "100%",
-      borderTopRightRadius: "100%",
+      borderTopLeftRadius: "5%",
+      borderTopRightRadius: "80%",
       borderBottomRightRadius: "100%",
       borderBottomLeftRadius: "100%",
-      borderBottom: "100px solid transparent",
-      borderTop: "50px groove ".concat(colStr),
-      borderLeft: "3px dotted purple",
-      borderRight: "5px solid ".concat(colStr)
+      borderTop: "4px solid ".concat(colStr)
     }
   });
 };
@@ -28373,7 +28370,7 @@ var React = __importStar(require("react"));
 var Pedal_1 = __importDefault(require("./Pedal"));
 
 var Flower = function Flower() {
-  var nums = _toConsumableArray(Array(10).keys()).slice(1);
+  var nums = _toConsumableArray(Array(100).keys()).slice(1);
 
   return React.createElement("div", {
     className: "flower",
@@ -28388,12 +28385,12 @@ var Flower = function Flower() {
     }
   }, nums.map(function (num) {
     return React.createElement(Pedal_1.default, {
-      rgbColors: [num * 10, 0, 255 - num * 10],
+      rgbColors: [255 % (num * 2) + 50, 1, 255 % (num * 2) + 150],
       rotateAmount: num * 10,
-      height: 250,
-      width: 10,
-      top: num * 10,
-      left: num * 10
+      height: 200,
+      width: 100,
+      top: num * 3,
+      left: num * 3
     });
   }));
 };
