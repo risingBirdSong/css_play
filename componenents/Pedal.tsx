@@ -3,8 +3,7 @@ export interface PedalProps {
   top: number;
   left: number;
   rotateAmount: number;
-  height: number;
-  width: number;
+  backAndForth: number;
   rgbColors: [number, number, number];
   transX: number;
   transY: number;
@@ -23,12 +22,13 @@ const Pedal = (props: PedalProps) => {
         // margin: "80px",
         position: "absolute",
         border: "5px solid gold",
-        height: props.height,
+        height: props.backAndForth,
         width: 100,
         top: props.top,
         left: props.left,
         borderRadius: "100%",
-        borderTop: `${props.rotateAmount}px solid red`,
+        borderTop: `${props.backAndForth}px solid red`,
+        borderBottom: `${props.backAndForth}px solid purple`,
 
         // transform: ``,
         transform: `translate(${props.transX}px, ${props.transY}px) rotate(${props.rotateAmount}deg)`,

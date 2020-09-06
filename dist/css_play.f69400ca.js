@@ -28339,12 +28339,13 @@ var Pedal = function Pedal(props) {
       // margin: "80px",
       position: "absolute",
       border: "5px solid gold",
-      height: props.height,
+      height: props.backAndForth,
       width: 100,
       top: props.top,
       left: props.left,
       borderRadius: "100%",
-      borderTop: "".concat(props.rotateAmount, "px solid red"),
+      borderTop: "".concat(props.backAndForth, "px solid red"),
+      borderBottom: "".concat(props.backAndForth, "px solid purple"),
       // transform: ``,
       transform: "translate(".concat(props.transX, "px, ").concat(props.transY, "px) rotate(").concat(props.rotateAmount, "deg)")
     }
@@ -28521,8 +28522,7 @@ var Flower = function Flower() {
       transY: radians_to_degrees(Math.cos(num)),
       rgbColors: [backAndForth, 10, backAndForth / 2],
       rotateAmount: n,
-      height: backAndForth / 2,
-      width: backAndForth,
+      backAndForth: backAndForth,
       top: 1,
       left: 1
     });
