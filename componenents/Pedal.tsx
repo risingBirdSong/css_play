@@ -30,8 +30,10 @@ const Pedal = (props: PedalProps) => {
         borderBottomRightRadius: "100%",
         borderBottomLeftRadius: "100%",
         border: "1px solid black",
-        borderBottom: "10px solid transparent",
-        borderTop: "10px solid transparent",
+        // borderBottom: "100% solid transparent",
+        // borderTop: "100% solid transparent",
+        // borderLeft: "100% solid transparent",
+        borderRight: `5px solid ${colStr}`,
       }}
     ></div>
   );

@@ -28325,8 +28325,10 @@ var Pedal = function Pedal(props) {
       borderBottomRightRadius: "100%",
       borderBottomLeftRadius: "100%",
       border: "1px solid black",
-      borderBottom: "10px solid transparent",
-      borderTop: "10px solid transparent"
+      // borderBottom: "100% solid transparent",
+      // borderTop: "100% solid transparent",
+      // borderLeft: "100% solid transparent",
+      borderRight: "5px solid ".concat(colStr)
     }
   });
 };
@@ -28372,7 +28374,7 @@ var React = __importStar(require("react"));
 var Pedal_1 = __importDefault(require("./Pedal"));
 
 var Flower = function Flower() {
-  var nums = _toConsumableArray(Array(20).keys()).slice(1);
+  var nums = _toConsumableArray(Array(10).keys()).slice(1);
 
   return React.createElement("div", {
     className: "flower",
@@ -28388,8 +28390,8 @@ var Flower = function Flower() {
   }, nums.map(function (num) {
     return React.createElement(Pedal_1.default, {
       rgbColors: [255 % num * 9, 1, 130],
-      rotateAmount: num * 120,
-      height: 250 - num,
+      rotateAmount: num * 10,
+      height: 250,
       width: 10,
       top: 0,
       left: 0
