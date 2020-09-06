@@ -28320,7 +28320,7 @@ var Pedal = function Pedal(props) {
       top: props.top,
       left: props.left,
       borderRadius: "100%",
-      borderTop: "5px solid black",
+      borderTop: "5px solid ".concat(colStr),
       // transform: ``,
       transform: "translate(".concat(props.transX, "px, ").concat(props.transY, "px) rotate(").concat(props.rotateAmount, "deg)")
     }
@@ -28391,7 +28391,7 @@ var Flower = function Flower() {
       transX: radians_to_degrees(Math.cos(num)) * 3,
       transY: radians_to_degrees(Math.sin(num)) * 3,
       rgbColors: [num * 1.3 + 50, 1, 255 % (num * 2) + 150],
-      rotateAmount: num * 3,
+      rotateAmount: num * 10,
       height: 100,
       width: 50,
       top: 1,
