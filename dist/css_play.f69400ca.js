@@ -28425,7 +28425,7 @@ var react_1 = require("react");
 var Pedal_1 = __importDefault(require("./Pedal"));
 
 var Flower = function Flower() {
-  var _react_1$useState = react_1.useState(50),
+  var _react_1$useState = react_1.useState(20),
       _react_1$useState2 = _slicedToArray(_react_1$useState, 2),
       n = _react_1$useState2[0],
       setN = _react_1$useState2[1];
@@ -28472,6 +28472,38 @@ var Flower = function Flower() {
         return ++prev;
       });
 
+      if (backAndForth % 100 === 0) {
+        setRising(function (prv) {
+          return !prv;
+        });
+
+        if (rising) {
+          setbackAndForth(function (prv) {
+            return prv - 10;
+          });
+        }
+
+        if (!rising) {
+          setbackAndForth(function (prv) {
+            return prv + 10;
+          });
+        }
+      }
+
+      if (rising) {
+        setbackAndForth(function (prv) {
+          return ++prv;
+        });
+      }
+
+      if (!rising) {
+        setbackAndForth(function (prv) {
+          return --prv;
+        });
+      }
+
+      console.log("back and forth", backAndForth);
+
       if (n % 10 === 0) {
         var stop = true;
       }
@@ -28505,7 +28537,7 @@ var Flower = function Flower() {
     return React.createElement(Pedal_1.default, {
       transX: radians_to_degrees(Math.cos(num)) * 2,
       transY: radians_to_degrees(Math.sin(num) * 3),
-      rgbColors: [num / 2 % 255, 50, num * 2 % 255],
+      rgbColors: [n / 2 % 255, 50, n * 2 % 255],
       rotateAmount: radians_to_degrees(Math.cos(num)) * 2 + n,
       height: 200 + backAndForth * 2,
       width: 300 + backAndForth,
