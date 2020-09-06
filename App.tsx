@@ -4,7 +4,7 @@ import Triangle from "./componenents/Triangle";
 const App = () => {
   return (
     <div>
-      {/* <Triangle /> */}
+      <Triangle />
       <Flower />
     </div>
   );

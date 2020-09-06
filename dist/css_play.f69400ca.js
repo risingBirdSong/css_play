@@ -28339,15 +28339,11 @@ var Pedal = function Pedal(props) {
       // padding: "100px",
       margin: "80px",
       height: props.height,
-      width: props.width,
+      width: 100,
       position: "absolute",
       top: props.top,
       left: props.left,
       borderRadius: "100%",
-      // borderTop: `5px dotted ${colStr}`,
-      // borderBottom: "5px dotted cornflowerblue",
-      // borderLeft: "5px dotted blueviolet",
-      // borderRight: "5px solid blueviolet",
       boxShadow: "1px 1px 10px  ".concat(colStr),
       // transform: ``,
       transform: "translate(".concat(props.transX, "px, ").concat(props.transY, "px) rotate(").concat(props.rotateAmount, "deg)")
@@ -28430,7 +28426,7 @@ var react_1 = require("react");
 var Pedal_1 = __importDefault(require("./Pedal"));
 
 var Flower = function Flower() {
-  var _react_1$useState = react_1.useState(20),
+  var _react_1$useState = react_1.useState(6),
       _react_1$useState2 = _slicedToArray(_react_1$useState, 2),
       n = _react_1$useState2[0],
       setN = _react_1$useState2[1];
@@ -28523,7 +28519,7 @@ var Flower = function Flower() {
       transX: radians_to_degrees(Math.sin(num)),
       transY: radians_to_degrees(Math.cos(num)),
       rgbColors: [backAndForth, 10, backAndForth / 2],
-      rotateAmount: radians_to_degrees(Math.cos(num)),
+      rotateAmount: n,
       height: backAndForth,
       width: backAndForth,
       top: 1,
@@ -28533,16 +28529,96 @@ var Flower = function Flower() {
 };
 
 exports.default = Flower;
-},{"react":"node_modules/react/index.js","./Pedal":"componenents/Pedal.tsx"}],"App.tsx":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","./Pedal":"componenents/Pedal.tsx"}],"componenents/Triangle.tsx":[function(require,module,exports) {
 "use strict";
+
+var __createBinding = this && this.__createBinding || (Object.create ? function (o, m, k, k2) {
+  if (k2 === undefined) k2 = k;
+  Object.defineProperty(o, k2, {
+    enumerable: true,
+    get: function get() {
+      return m[k];
+    }
+  });
+} : function (o, m, k, k2) {
+  if (k2 === undefined) k2 = k;
+  o[k2] = m[k];
+});
+
+var __setModuleDefault = this && this.__setModuleDefault || (Object.create ? function (o, v) {
+  Object.defineProperty(o, "default", {
+    enumerable: true,
+    value: v
+  });
+} : function (o, v) {
+  o["default"] = v;
+});
 
 var __importStar = this && this.__importStar || function (mod) {
   if (mod && mod.__esModule) return mod;
   var result = {};
   if (mod != null) for (var k in mod) {
-    if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
+    if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
   }
-  result["default"] = mod;
+
+  __setModuleDefault(result, mod);
+
+  return result;
+};
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var React = __importStar(require("react"));
+
+var Triangle = function Triangle() {
+  return React.createElement("div", null, React.createElement("div", {
+    className: "arrow-up"
+  }), React.createElement("div", {
+    className: "arrow-down"
+  }), React.createElement("div", {
+    className: "arrow-left"
+  }), React.createElement("div", {
+    className: "arrow-right"
+  }));
+};
+
+exports.default = Triangle;
+},{"react":"node_modules/react/index.js"}],"App.tsx":[function(require,module,exports) {
+"use strict";
+
+var __createBinding = this && this.__createBinding || (Object.create ? function (o, m, k, k2) {
+  if (k2 === undefined) k2 = k;
+  Object.defineProperty(o, k2, {
+    enumerable: true,
+    get: function get() {
+      return m[k];
+    }
+  });
+} : function (o, m, k, k2) {
+  if (k2 === undefined) k2 = k;
+  o[k2] = m[k];
+});
+
+var __setModuleDefault = this && this.__setModuleDefault || (Object.create ? function (o, v) {
+  Object.defineProperty(o, "default", {
+    enumerable: true,
+    value: v
+  });
+} : function (o, v) {
+  o["default"] = v;
+});
+
+var __importStar = this && this.__importStar || function (mod) {
+  if (mod && mod.__esModule) return mod;
+  var result = {};
+  if (mod != null) for (var k in mod) {
+    if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+  }
+
+  __setModuleDefault(result, mod);
+
   return result;
 };
 
@@ -28560,12 +28636,14 @@ var React = __importStar(require("react"));
 
 var Flower_1 = __importDefault(require("./componenents/Flower"));
 
+var Triangle_1 = __importDefault(require("./componenents/Triangle"));
+
 var App = function App() {
-  return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(Flower_1.default, null));
+  return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(Triangle_1.default, null), /*#__PURE__*/React.createElement(Flower_1.default, null));
 };
 
 exports.default = App;
-},{"react":"node_modules/react/index.js","./componenents/Flower":"componenents/Flower.tsx"}],"index.tsx":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","./componenents/Flower":"componenents/Flower.tsx","./componenents/Triangle":"componenents/Triangle.tsx"}],"index.tsx":[function(require,module,exports) {
 "use strict";
 
 var __importStar = this && this.__importStar || function (mod) {

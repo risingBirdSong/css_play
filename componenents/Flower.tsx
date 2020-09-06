@@ -2,7 +2,7 @@ import * as React from "react";
 import { useState, useEffect } from "react";
 import Pedal from "./Pedal";
 const Flower = () => {
-  const [n, setN] = useState(20);
+  const [n, setN] = useState(6);
   const [backAndForth, setbackAndForth] = useState(1);
   const [delay, setDelay] = useState(1);
   const [clearTimer, setClearTimer] = useState(false);
@@ -58,7 +58,7 @@ const Flower = () => {
             transX={radians_to_degrees(Math.sin(num))}
             transY={radians_to_degrees(Math.cos(num))}
             rgbColors={[backAndForth, 10, backAndForth / 2]}
-            rotateAmount={radians_to_degrees(Math.cos(num))}
+            rotateAmount={n}
             height={backAndForth}
             width={backAndForth}
             top={1}
