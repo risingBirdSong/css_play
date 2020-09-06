@@ -28430,65 +28430,61 @@ var Flower = function Flower() {
       n = _react_1$useState2[0],
       setN = _react_1$useState2[1];
 
-  console.log("n", n);
-
   var _react_1$useState3 = react_1.useState(1),
       _react_1$useState4 = _slicedToArray(_react_1$useState3, 2),
-      backAndForth = _react_1$useState4[0],
-      setbackAndForth = _react_1$useState4[1];
+      counter = _react_1$useState4[0],
+      setCounter = _react_1$useState4[1];
 
-  console.log("back and forth", backAndForth);
-
-  var _react_1$useState5 = react_1.useState(true),
+  var _react_1$useState5 = react_1.useState(1),
       _react_1$useState6 = _slicedToArray(_react_1$useState5, 2),
-      rising = _react_1$useState6[0],
-      setRising = _react_1$useState6[1];
+      backAndForth = _react_1$useState6[0],
+      setbackAndForth = _react_1$useState6[1];
 
-  var _react_1$useState7 = react_1.useState(_toConsumableArray(Array(n).keys()).slice(n - 99)),
+  var _react_1$useState7 = react_1.useState(10),
       _react_1$useState8 = _slicedToArray(_react_1$useState7, 2),
-      nums = _react_1$useState8[0],
-      setNums = _react_1$useState8[1];
+      delay = _react_1$useState8[0],
+      setDelay = _react_1$useState8[1];
 
   var _react_1$useState9 = react_1.useState(false),
       _react_1$useState10 = _slicedToArray(_react_1$useState9, 2),
-      restart = _react_1$useState10[0],
-      setRestart = _react_1$useState10[1];
+      clearTimer = _react_1$useState10[0],
+      setClearTimer = _react_1$useState10[1]; // console.log("back and forth", backAndForth);
+
+
+  var _react_1$useState11 = react_1.useState(true),
+      _react_1$useState12 = _slicedToArray(_react_1$useState11, 2),
+      rising = _react_1$useState12[0],
+      setRising = _react_1$useState12[1];
+
+  var _react_1$useState13 = react_1.useState(_toConsumableArray(Array(n).keys())),
+      _react_1$useState14 = _slicedToArray(_react_1$useState13, 2),
+      nums = _react_1$useState14[0],
+      setNums = _react_1$useState14[1];
+
+  var _react_1$useState15 = react_1.useState(false),
+      _react_1$useState16 = _slicedToArray(_react_1$useState15, 2),
+      restart = _react_1$useState16[0],
+      setRestart = _react_1$useState16[1];
 
   react_1.useEffect(function () {
-    var timer = setInterval(function () {
-      setN(function (preV) {
-        return preV + 1;
+    var timing = setTimeout(function () {
+      setN(function (prev) {
+        return ++prev;
       });
 
-      if (backAndForth >= 50) {
-        setRising(function (prev) {
-          return !prev;
-        });
-      } else if (backAndForth <= 0) {
-        setRising(function (prev) {
-          return !prev;
-        });
+      if (n % 10 === 0) {
+        var stop = true;
       }
 
-      if (rising) {
-        setbackAndForth(function (prev) {
-          return ++prev;
-        });
-      } else if (!rising) {
-        setbackAndForth(function (prev) {
-          return --prev;
-        });
+      if (n > 2000) {
+        setClearTimer(true);
       }
+    }, delay);
 
-      setNums(_toConsumableArray(Array(n).keys()).map(function (num) {
-        return num + n;
-      }).slice(n - 99));
-    }, 40); // clearing interval
-
-    return function () {
-      return clearInterval(timer);
-    };
-  }, []);
+    if (clearTimer) {
+      return clearTimeout(timing);
+    }
+  }, [n]);
   return React.createElement("div", {
     className: "flower",
     style: {

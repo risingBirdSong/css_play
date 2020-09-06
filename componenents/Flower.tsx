@@ -3,31 +3,30 @@ import { useState, useEffect } from "react";
 import Pedal from "./Pedal";
 const Flower = () => {
   const [n, setN] = useState(50);
-  console.log("n", n);
+  const [counter, setCounter] = useState(1);
   const [backAndForth, setbackAndForth] = useState(1);
-  console.log("back and forth", backAndForth);
-
+  const [delay, setDelay] = useState(10);
+  const [clearTimer, setClearTimer] = useState(false);
+  // console.log("back and forth", backAndForth);
   const [rising, setRising] = useState(true);
-  let [nums, setNums] = useState([...Array(n).keys()].slice(n - 99));
+
+  let [nums, setNums] = useState([...Array(n).keys()]);
   const [restart, setRestart] = useState(false);
+
   useEffect(() => {
-    const timer = setInterval(() => {
-      setN((preV) => preV + 1);
-      if (backAndForth >= 50) {
-        setRising((prev) => !prev);
-      } else if (backAndForth <= 0) {
-        setRising((prev) => !prev);
+    const timing = setTimeout(() => {
+      setN((prev) => ++prev);
+      if (n % 10 === 0) {
+        let stop = true;
       }
-      if (rising) {
-        setbackAndForth((prev) => ++prev);
-      } else if (!rising) {
-        setbackAndForth((prev) => --prev);
+      if (n > 2000) {
+        setClearTimer(true);
       }
-      setNums([...Array(n).keys()].map((num) => num + n).slice(n - 99));
-    }, 40);
-    // clearing interval
-    return () => clearInterval(timer);
-  }, []);
+    }, delay);
+    if (clearTimer) {
+      return clearTimeout(timing);
+    }
+  }, [n]);
 
   return (
     <div
