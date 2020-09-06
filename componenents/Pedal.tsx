@@ -8,6 +8,7 @@ export interface PedalProps {
   rgbColors: [number, number, number];
   transX: number;
   transY: number;
+  idx: number;
 }
 const Pedal = (props: PedalProps) => {
   let clrs = props.rgbColors;
@@ -15,10 +16,9 @@ const Pedal = (props: PedalProps) => {
 
   return (
     <div
-      className="pedal"
+      className={`idx${props.idx}`}
       style={{
         // backgroundColor: `rgb(100, 1, 10)`,
-        // backgroundColor: colStr,
         // padding: "100px",
         margin: "80px",
         height: props.height,
@@ -27,7 +27,7 @@ const Pedal = (props: PedalProps) => {
         top: props.top,
         left: props.left,
         borderRadius: "100%",
-        boxShadow: `1px 1px 10px  ${colStr}`,
+        border: "5px solid gold",
         // transform: ``,
         transform: `translate(${props.transX}px, ${props.transY}px) rotate(${props.rotateAmount}deg)`,
         //@ts-ignore

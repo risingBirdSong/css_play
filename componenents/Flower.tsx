@@ -48,13 +48,14 @@ const Flower = () => {
         alignItems: "center",
       }}
     >
-      {nums.map((num) => {
+      {nums.map((num, idx) => {
         function radians_to_degrees(radians: number) {
           var pi = Math.PI;
           return radians * (180 / pi);
         }
         return (
           <Pedal
+            idx={idx}
             transX={radians_to_degrees(Math.sin(num))}
             transY={radians_to_degrees(Math.cos(num))}
             rgbColors={[backAndForth, 10, backAndForth / 2]}

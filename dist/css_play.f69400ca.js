@@ -28332,10 +28332,9 @@ var Pedal = function Pedal(props) {
   var clrs = props.rgbColors;
   var colStr = "rgb(".concat(clrs[0], ",").concat(clrs[1], ",").concat(clrs[2], ")");
   return React.createElement("div", {
-    className: "pedal",
+    className: "idx".concat(props.idx),
     style: {
       // backgroundColor: `rgb(100, 1, 10)`,
-      // backgroundColor: colStr,
       // padding: "100px",
       margin: "80px",
       height: props.height,
@@ -28344,7 +28343,7 @@ var Pedal = function Pedal(props) {
       top: props.top,
       left: props.left,
       borderRadius: "100%",
-      boxShadow: "1px 1px 10px  ".concat(colStr),
+      border: "5px solid gold",
       // transform: ``,
       transform: "translate(".concat(props.transX, "px, ").concat(props.transY, "px) rotate(").concat(props.rotateAmount, "deg)")
     }
@@ -28509,13 +28508,14 @@ var Flower = function Flower() {
       left: "50%",
       alignItems: "center"
     }
-  }, nums.map(function (num) {
+  }, nums.map(function (num, idx) {
     function radians_to_degrees(radians) {
       var pi = Math.PI;
       return radians * (180 / pi);
     }
 
     return React.createElement(Pedal_1.default, {
+      idx: idx,
       transX: radians_to_degrees(Math.sin(num)),
       transY: radians_to_degrees(Math.cos(num)),
       rgbColors: [backAndForth, 10, backAndForth / 2],

@@ -35,7 +35,23 @@
   color: maroon;
 }
 
-.pedal {
+.idx0 {
+  background-color: blue;
+}
+.idx1 {
+  background-color: blueviolet;
+}
+.idx2 {
+  background-color: cadetblue;
+}
+.idx3 {
+  background-color: cornflowerblue;
+}
+.idx4 {
+  background-color: crimson;
+}
+.idx5 {
+  background-color: darkred;
 }
 
 
