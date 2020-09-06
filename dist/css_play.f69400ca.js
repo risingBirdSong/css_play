@@ -28391,7 +28391,7 @@ var Flower = function Flower() {
       transX: radians_to_degrees(Math.cos(num)) * 3,
       transY: radians_to_degrees(Math.sin(num)) * 3,
       rgbColors: [num * 1.3 + 50, 1, 255 % (num * 2) + 150],
-      rotateAmount: radians_to_degrees(Math.sin(num)) * 3,
+      rotateAmount: radians_to_degrees(Math.sin(num)) * 2.5,
       height: 100,
       width: 50,
       top: 1,
