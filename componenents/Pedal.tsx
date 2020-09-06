@@ -24,11 +24,11 @@ const Pedal = (props: PedalProps) => {
         top: props.top,
         left: props.left,
         transform: `rotate(${props.rotateAmount}deg)`,
-        borderTopLeftRadius: "5%",
-        borderTopRightRadius: "80%",
-        borderBottomRightRadius: "100%",
-        borderBottomLeftRadius: "100%",
-        borderTop: `4px solid ${colStr}`,
+        borderTopLeftRadius: "1%",
+        borderTopRightRadius: "100%",
+        borderBottomRightRadius: "1%",
+        borderBottomLeftRadius: "1%",
+        borderTop: `4px dotted ${colStr}`,
       }}
     ></div>
   );
