@@ -28448,8 +28448,7 @@ var Flower = function Flower() {
   var _react_1$useState9 = react_1.useState(false),
       _react_1$useState10 = _slicedToArray(_react_1$useState9, 2),
       clearTimer = _react_1$useState10[0],
-      setClearTimer = _react_1$useState10[1]; // console.log("back and forth", backAndForth);
-
+      setClearTimer = _react_1$useState10[1];
 
   var _react_1$useState11 = react_1.useState(true),
       _react_1$useState12 = _slicedToArray(_react_1$useState11, 2),
@@ -28472,22 +28471,10 @@ var Flower = function Flower() {
         return ++prev;
       });
 
-      if (backAndForth % 100 === 0) {
+      if (n % 100 === 0) {
         setRising(function (prv) {
           return !prv;
         });
-
-        if (rising) {
-          setbackAndForth(function (prv) {
-            return prv - 10;
-          });
-        }
-
-        if (!rising) {
-          setbackAndForth(function (prv) {
-            return prv + 10;
-          });
-        }
       }
 
       if (rising) {
@@ -28501,8 +28488,6 @@ var Flower = function Flower() {
           return --prv;
         });
       }
-
-      console.log("back and forth", backAndForth);
 
       if (n % 10 === 0) {
         var stop = true;

@@ -7,7 +7,6 @@ const Flower = () => {
   const [backAndForth, setbackAndForth] = useState(1);
   const [delay, setDelay] = useState(10);
   const [clearTimer, setClearTimer] = useState(false);
-  // console.log("back and forth", backAndForth);
   const [rising, setRising] = useState(true);
 
   let [nums, setNums] = useState([...Array(n).keys()]);
@@ -16,14 +15,8 @@ const Flower = () => {
   useEffect(() => {
     const timing = setTimeout(() => {
       setN((prev) => ++prev);
-      if (backAndForth % 100 === 0) {
+      if (n % 100 === 0) {
         setRising((prv) => !prv);
-        if (rising) {
-          setbackAndForth((prv) => prv - 10);
-        }
-        if (!rising) {
-          setbackAndForth((prv) => prv + 10);
-        }
       }
       if (rising) {
         setbackAndForth((prv) => ++prv);
@@ -31,8 +24,6 @@ const Flower = () => {
       if (!rising) {
         setbackAndForth((prv) => --prv);
       }
-      console.log("back and forth", backAndForth);
-
       if (n % 10 === 0) {
         let stop = true;
       }
