@@ -28336,14 +28336,15 @@ var Pedal = function Pedal(props) {
     style: {
       // backgroundColor: `rgb(100, 1, 10)`,
       // padding: "100px",
-      margin: "80px",
+      // margin: "80px",
+      position: "absolute",
+      border: "5px solid gold",
       height: props.height,
       width: 100,
-      position: "absolute",
       top: props.top,
       left: props.left,
       borderRadius: "100%",
-      border: "5px solid gold",
+      borderTop: "".concat(props.rotateAmount, "px solid red"),
       // transform: ``,
       transform: "translate(".concat(props.transX, "px, ").concat(props.transY, "px) rotate(").concat(props.rotateAmount, "deg)")
     }
