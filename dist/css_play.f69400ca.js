@@ -28449,6 +28449,11 @@ var Flower = function Flower() {
       nums = _react_1$useState8[0],
       setNums = _react_1$useState8[1];
 
+  var _react_1$useState9 = react_1.useState(false),
+      _react_1$useState10 = _slicedToArray(_react_1$useState9, 2),
+      restart = _react_1$useState10[0],
+      setRestart = _react_1$useState10[1];
+
   react_1.useEffect(function () {
     var timer = setInterval(function () {
       setN(function (preV) {
@@ -28478,12 +28483,12 @@ var Flower = function Flower() {
       setNums(_toConsumableArray(Array(n).keys()).map(function (num) {
         return num + n;
       }).slice(n - 99));
-    }, 30); // clearing interval
+    }, 40); // clearing interval
 
     return function () {
       return clearInterval(timer);
     };
-  });
+  }, []);
   return React.createElement("div", {
     className: "flower",
     style: {

@@ -9,7 +9,7 @@ const Flower = () => {
 
   const [rising, setRising] = useState(true);
   let [nums, setNums] = useState([...Array(n).keys()].slice(n - 99));
-
+  const [restart, setRestart] = useState(false);
   useEffect(() => {
     const timer = setInterval(() => {
       setN((preV) => preV + 1);
@@ -24,10 +24,10 @@ const Flower = () => {
         setbackAndForth((prev) => --prev);
       }
       setNums([...Array(n).keys()].map((num) => num + n).slice(n - 99));
-    }, 30);
+    }, 40);
     // clearing interval
     return () => clearInterval(timer);
-  });
+  }, []);
 
   return (
     <div
