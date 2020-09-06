@@ -18,7 +18,7 @@ const Flower = () => {
       {nums.map((num) => {
         return (
           <Pedal
-            rgbColors={[(255 % num) * 9, 1, 130]}
+            rgbColors={[num * 10, 0, 255 - num * 10]}
             rotateAmount={num * 10}
             height={250}
             width={10}

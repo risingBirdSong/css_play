@@ -28324,11 +28324,10 @@ var Pedal = function Pedal(props) {
       borderTopRightRadius: "100%",
       borderBottomRightRadius: "100%",
       borderBottomLeftRadius: "100%",
-      // border: "1px solid black",
-      // borderBottom: "100% solid transparent",
-      // borderTop: "100% solid transparent",
-      // borderLeft: "1px dotted black",
-      borderRight: "5px dotted ".concat(colStr)
+      borderBottom: "100px solid transparent",
+      borderTop: "50px groove ".concat(colStr),
+      borderLeft: "3px dotted purple",
+      borderRight: "5px solid ".concat(colStr)
     }
   });
 };
@@ -28389,7 +28388,7 @@ var Flower = function Flower() {
     }
   }, nums.map(function (num) {
     return React.createElement(Pedal_1.default, {
-      rgbColors: [255 % num * 9, 1, 130],
+      rgbColors: [num * 10, 0, 255 - num * 10],
       rotateAmount: num * 10,
       height: 250,
       width: 10,
