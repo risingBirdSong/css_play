@@ -15,7 +15,7 @@ const Pedal = (props: PedalProps) => {
 
   return (
     <div
-      // className={`idx${props.idx}`}
+      className={`idx${props.idx}`}
       style={{
         // backgroundColor: `rgb(100, 1, 10)`,
         // padding: "100px",
@@ -28,6 +28,7 @@ const Pedal = (props: PedalProps) => {
         top: props.top,
         left: props.left,
         borderRadius: "50px/100px",
+        boxShadow: "10px 10px 10px purple",
         borderTop: `5px solid ${colStr}`,
         borderRight: `5px solid  ${colStr}`,
         borderBottom: `5px solid  ${colStr}`,

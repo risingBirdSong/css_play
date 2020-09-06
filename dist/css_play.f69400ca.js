@@ -28332,7 +28332,7 @@ var Pedal = function Pedal(props) {
   var clrs = props.rgbColors;
   var colStr = "rgb(".concat(clrs[0], ",").concat(clrs[1], ",").concat(clrs[2], ")");
   return React.createElement("div", {
-    // className={`idx${props.idx}`}
+    className: "idx".concat(props.idx),
     style: {
       // backgroundColor: `rgb(100, 1, 10)`,
       // padding: "100px",
@@ -28345,6 +28345,7 @@ var Pedal = function Pedal(props) {
       top: props.top,
       left: props.left,
       borderRadius: "50px/100px",
+      boxShadow: "10px 10px 10px purple",
       borderTop: "5px solid ".concat(colStr),
       borderRight: "5px solid  ".concat(colStr),
       borderBottom: "5px solid  ".concat(colStr),
