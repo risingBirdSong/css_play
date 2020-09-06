@@ -25,15 +25,15 @@ const Pedal = (props: PedalProps) => {
         top: props.top,
         left: props.left,
         transform: `rotate(${props.rotateAmount}deg)`,
-        borderTopLeftRadius: "50%",
-        borderTopRightRadius: "50%",
+        borderTopLeftRadius: "100%",
+        borderTopRightRadius: "100%",
         borderBottomRightRadius: "100%",
         borderBottomLeftRadius: "100%",
-        border: "1px solid black",
+        // border: "1px solid black",
         // borderBottom: "100% solid transparent",
         // borderTop: "100% solid transparent",
-        // borderLeft: "100% solid transparent",
-        borderRight: `5px solid ${colStr}`,
+        // borderLeft: "1px dotted black",
+        borderRight: `5px dotted ${colStr}`,
       }}
     ></div>
   );

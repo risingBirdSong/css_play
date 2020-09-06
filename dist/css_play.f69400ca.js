@@ -28320,15 +28320,15 @@ var Pedal = function Pedal(props) {
       top: props.top,
       left: props.left,
       transform: "rotate(".concat(props.rotateAmount, "deg)"),
-      borderTopLeftRadius: "50%",
-      borderTopRightRadius: "50%",
+      borderTopLeftRadius: "100%",
+      borderTopRightRadius: "100%",
       borderBottomRightRadius: "100%",
       borderBottomLeftRadius: "100%",
-      border: "1px solid black",
+      // border: "1px solid black",
       // borderBottom: "100% solid transparent",
       // borderTop: "100% solid transparent",
-      // borderLeft: "100% solid transparent",
-      borderRight: "5px solid ".concat(colStr)
+      // borderLeft: "1px dotted black",
+      borderRight: "5px dotted ".concat(colStr)
     }
   });
 };
@@ -28393,8 +28393,8 @@ var Flower = function Flower() {
       rotateAmount: num * 10,
       height: 250,
       width: 10,
-      top: 0,
-      left: 0
+      top: num * 10,
+      left: num * 10
     });
   }));
 };

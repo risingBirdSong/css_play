@@ -22,8 +22,8 @@ const Flower = () => {
             rotateAmount={num * 10}
             height={250}
             width={10}
-            top={0}
-            left={0}
+            top={num * 10}
+            left={num * 10}
           />
         );
       })}
