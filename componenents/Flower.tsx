@@ -19,7 +19,7 @@ const Flower = () => {
         return (
           <Pedal
             rgbColors={[(255 % num) * 9, 1, 130]}
-            rotateAmount={num * 2}
+            rotateAmount={num * 20}
             height={250 - num}
             width={10}
             top={0}
