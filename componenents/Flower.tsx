@@ -55,7 +55,7 @@ const Flower = () => {
         }
         return (
           <Pedal
-            transX={radians_to_degrees(Math.sin(num))}
+            transX={radians_to_degrees(Math.sin(num)) * 2}
             transY={radians_to_degrees(Math.cos(num))}
             rgbColors={[backAndForth, 10, backAndForth / 2]}
             rotateAmount={radians_to_degrees(Math.cos(num))}

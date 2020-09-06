@@ -28343,11 +28343,11 @@ var Pedal = function Pedal(props) {
       top: props.top,
       left: props.left,
       borderRadius: "100%",
-      borderTop: "5px dotted ".concat(colStr),
-      borderBottom: "5px dotted cornflowerblue",
+      // borderTop: `5px dotted ${colStr}`,
+      // borderBottom: "5px dotted cornflowerblue",
       // borderLeft: "5px dotted blueviolet",
       // borderRight: "5px solid blueviolet",
-      // boxShadow: `1px 1px 10px  ${colStr}`,
+      boxShadow: "1px 1px 10px  ".concat(colStr),
       // transform: ``,
       transform: "translate(".concat(props.transX, "px, ").concat(props.transY, "px) rotate(").concat(props.rotateAmount, "deg)")
     }
@@ -28519,7 +28519,7 @@ var Flower = function Flower() {
     }
 
     return React.createElement(Pedal_1.default, {
-      transX: radians_to_degrees(Math.sin(num)),
+      transX: radians_to_degrees(Math.sin(num)) * 2,
       transY: radians_to_degrees(Math.cos(num)),
       rgbColors: [backAndForth, 10, backAndForth / 2],
       rotateAmount: radians_to_degrees(Math.cos(num)),
