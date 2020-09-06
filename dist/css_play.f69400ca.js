@@ -28366,7 +28366,7 @@ var React = __importStar(require("react"));
 var Pedal_1 = __importDefault(require("./Pedal"));
 
 var Flower = function Flower() {
-  var nums = _toConsumableArray(Array(15).keys()).slice(1);
+  var nums = _toConsumableArray(Array(13).keys()).slice(1);
 
   return React.createElement("div", {
     className: "flower",
@@ -28381,9 +28381,9 @@ var Flower = function Flower() {
     }
   }, nums.map(function (num) {
     return React.createElement(Pedal_1.default, {
-      rotateAmount: num * 15,
-      height: num * 10,
-      width: num * 10,
+      rotateAmount: num * 30,
+      height: 250,
+      width: 50,
       top: 0,
       left: 0
     });
