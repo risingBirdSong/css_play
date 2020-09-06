@@ -4,7 +4,7 @@ import Pedal from "./Pedal";
 const Flower = () => {
   const [n, setN] = useState(20);
   const [backAndForth, setbackAndForth] = useState(1);
-  const [delay, setDelay] = useState(10);
+  const [delay, setDelay] = useState(1);
   const [clearTimer, setClearTimer] = useState(false);
   const [rising, setRising] = useState(true);
 
@@ -14,7 +14,7 @@ const Flower = () => {
   useEffect(() => {
     const timing = setTimeout(() => {
       setN((prev) => ++prev);
-      if (n % 100 === 0) {
+      if (n % 300 === 0) {
         setRising((prv) => !prv);
       }
       if (rising) {
@@ -56,11 +56,11 @@ const Flower = () => {
         return (
           <Pedal
             transX={radians_to_degrees(Math.cos(num)) * 2}
-            transY={radians_to_degrees(Math.sin(num) * 3)}
+            transY={radians_to_degrees(Math.sin(num) * 2)}
             rgbColors={[(n / 2) % 255, 50, (n * 2) % 255]}
-            rotateAmount={radians_to_degrees(Math.cos(num)) * 2 + n}
-            height={200 + backAndForth}
-            width={200 + backAndForth}
+            rotateAmount={radians_to_degrees(Math.cos(num))}
+            height={100 + backAndForth}
+            width={100 + backAndForth}
             top={1}
             left={1}
           />
