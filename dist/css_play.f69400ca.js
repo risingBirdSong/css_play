@@ -28340,7 +28340,7 @@ var Pedal = function Pedal(props) {
       position: "absolute",
       border: "5px solid gold",
       height: "100px",
-      width: "100px",
+      width: "".concat(props.backAndForth),
       top: props.top,
       left: props.left,
       borderRadius: "90px/100px",
@@ -28352,8 +28352,8 @@ var Pedal = function Pedal(props) {
       borderLeft: "5px solid  ".concat(colStr),
       // borderRight: `5px solid  ${colStr}`,
       // borderLeft: `5px solid  ${colStr}`,
-      borderBottomLeftRadius: "10px",
-      borderBottomRightRadius: "10px",
+      // borderBottomLeftRadius: "10px",
+      // borderBottomRightRadius: "10px",
       // transform: ``,
       transform: "translate(".concat(props.transX, "px, ").concat(props.transY, "px) rotate(").concat(props.rotateAmount, "deg)")
     }
