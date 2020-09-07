@@ -28334,28 +28334,28 @@ var Pedal = function Pedal(props) {
   return React.createElement("div", {
     style: {
       // backgroundColor: colStr,
-      padding: "".concat(props.backAndForth, "px"),
+      // padding: `${props.backAndForth}px`,
       // margin: "80px",
-      overflow: "hidden",
+      // overflow: "hidden",
       position: "absolute",
       border: "5px solid gold",
       height: "0px",
       width: "0px",
       top: props.top,
       left: props.left,
-      borderRadius: "90px/100px",
+      // borderRadius: "90px/100px",
       // boxShadow: "10px 10px 10px purple",
-      borderTop: "100px solid transparent",
-      borderBottom: "100px solid  transparent",
-      borderRight: "100px solid transparent",
-      borderLeft: "100px solid  ".concat(colStr),
+      borderTop: "50px solid transparent",
+      borderBottom: "50px solid  transparent",
+      borderRight: "50px solid transparent",
+      borderLeft: "200px solid  ".concat(colStr),
       // borderBottom: `50px solid plum`,
       // borderRight: `5px solid  ${colStr}`,
       // borderLeft: `5px solid  ${colStr}`,
       // borderBottomLeftRadius: "10px",
       // borderBottomRightRadius: "10px",
       // transform: ``,
-      transform: "translate(".concat(props.transX, "px, ").concat(props.transY, "px) rotate(").concat(props.rotateAmount + 90, "deg)")
+      transform: "translate(".concat(props.transX, "px, ").concat(props.transY, "px) rotate(").concat(props.rotateAmount - 90 + props.backAndForth, "deg)")
     }
   });
 };
@@ -28435,7 +28435,7 @@ var react_1 = require("react");
 var Pedal_1 = __importDefault(require("./Pedal"));
 
 var Flower = function Flower() {
-  var _react_1$useState = react_1.useState(6),
+  var _react_1$useState = react_1.useState(24),
       _react_1$useState2 = _slicedToArray(_react_1$useState, 2),
       n = _react_1$useState2[0],
       setN = _react_1$useState2[1];
@@ -28445,7 +28445,7 @@ var Flower = function Flower() {
       backAndForth = _react_1$useState4[0],
       setbackAndForth = _react_1$useState4[1];
 
-  var _react_1$useState5 = react_1.useState(0.1),
+  var _react_1$useState5 = react_1.useState(1),
       _react_1$useState6 = _slicedToArray(_react_1$useState5, 2),
       delay = _react_1$useState6[0],
       setDelay = _react_1$useState6[1];
@@ -28488,7 +28488,7 @@ var Flower = function Flower() {
         return ++prev;
       });
 
-      if (backAndForth >= 100) {
+      if (backAndForth >= 360) {
         setRising(false);
       }
 

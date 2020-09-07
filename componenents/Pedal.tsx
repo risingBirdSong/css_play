@@ -17,21 +17,21 @@ const Pedal = (props: PedalProps) => {
     <div
       style={{
         // backgroundColor: colStr,
-        padding: `${props.backAndForth}px`,
+        // padding: `${props.backAndForth}px`,
         // margin: "80px",
-        overflow: "hidden",
+        // overflow: "hidden",
         position: "absolute",
         border: "5px solid gold",
         height: `0px`,
         width: `0px`,
         top: props.top,
         left: props.left,
-        borderRadius: "90px/100px",
+        // borderRadius: "90px/100px",
         // boxShadow: "10px 10px 10px purple",
-        borderTop: `100px solid transparent`,
-        borderBottom: `100px solid  transparent`,
-        borderRight: `100px solid transparent`,
-        borderLeft: `100px solid  ${colStr}`,
+        borderTop: `50px solid transparent`,
+        borderBottom: `50px solid  transparent`,
+        borderRight: `50px solid transparent`,
+        borderLeft: `200px solid  ${colStr}`,
         // borderBottom: `50px solid plum`,
         // borderRight: `5px solid  ${colStr}`,
         // borderLeft: `5px solid  ${colStr}`,
@@ -40,7 +40,7 @@ const Pedal = (props: PedalProps) => {
 
         // transform: ``,
         transform: `translate(${props.transX}px, ${props.transY}px) rotate(${
-          props.rotateAmount + 90
+          props.rotateAmount - 90 + props.backAndForth
         }deg)`,
         //@ts-ignore
         // transform: `rotate(${props.rotateAmount}deg)`,

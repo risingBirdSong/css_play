@@ -2,9 +2,9 @@ import * as React from "react";
 import { useState, useEffect } from "react";
 import Pedal from "./Pedal";
 const Flower = () => {
-  const [n, setN] = useState(6);
+  const [n, setN] = useState(24);
   const [backAndForth, setbackAndForth] = useState(5);
-  const [delay, setDelay] = useState(0.1);
+  const [delay, setDelay] = useState(1);
   const [clearTimer, setClearTimer] = useState(false);
   const [rising, setRising] = useState(true);
 
@@ -26,7 +26,7 @@ const Flower = () => {
   useEffect(() => {
     const timing = setTimeout(() => {
       setN((prev) => ++prev);
-      if (backAndForth >= 100) {
+      if (backAndForth >= 360) {
         setRising(false);
       }
       if (backAndForth <= 5) {
