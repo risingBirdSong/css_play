@@ -28331,8 +28331,11 @@ var React = __importStar(require("react"));
 var Pedal = function Pedal(props) {
   var clrs = props.rgbColors;
   var colStr = "rgb(".concat(clrs[0], ",").concat(clrs[1], ",").concat(clrs[2], ")");
+  console.log("x", props.transX);
+  console.log("y", props.transY);
+  console.log("props angle", props.rotateAmount);
+  console.log("geometry", Math.sin(props.transY) / Math.cos(props.transX));
   return React.createElement("div", {
-    className: "idx".concat(props.idx),
     style: {
       // backgroundColor: `rgb(100, 1, 10)`,
       // padding: "100px",
@@ -28433,7 +28436,7 @@ var react_1 = require("react");
 var Pedal_1 = __importDefault(require("./Pedal"));
 
 var Flower = function Flower() {
-  var _react_1$useState = react_1.useState(6),
+  var _react_1$useState = react_1.useState(21),
       _react_1$useState2 = _slicedToArray(_react_1$useState, 2),
       n = _react_1$useState2[0],
       setN = _react_1$useState2[1];
@@ -28443,7 +28446,7 @@ var Flower = function Flower() {
       backAndForth = _react_1$useState4[0],
       setbackAndForth = _react_1$useState4[1];
 
-  var _react_1$useState5 = react_1.useState(1),
+  var _react_1$useState5 = react_1.useState(100),
       _react_1$useState6 = _slicedToArray(_react_1$useState5, 2),
       delay = _react_1$useState6[0],
       setDelay = _react_1$useState6[1];
@@ -28467,6 +28470,17 @@ var Flower = function Flower() {
       _react_1$useState14 = _slicedToArray(_react_1$useState13, 2),
       restart = _react_1$useState14[0],
       setRestart = _react_1$useState14[1];
+
+  function radians_to_degrees(radians) {
+    var pi = Math.PI;
+    return radians * (180 / pi);
+  }
+
+  function coordsToAngle(x1, x2, y1, y2) {
+    var deltaX = x2 - x1;
+    var deltaY = y2 - y1;
+    return Math.atan2(deltaY, deltaX);
+  }
 
   react_1.useEffect(function () {
     var timing = setTimeout(function () {
@@ -28504,7 +28518,7 @@ var Flower = function Flower() {
     if (clearTimer) {
       return clearTimeout(timing);
     }
-  }, [n]);
+  }, []);
   return React.createElement("div", {
     className: "flower",
     style: {
@@ -28522,16 +28536,18 @@ var Flower = function Flower() {
       return radians * (180 / pi);
     }
 
-    return React.createElement(Pedal_1.default, {
-      idx: idx,
-      transX: radians_to_degrees(Math.sin(num)),
-      transY: radians_to_degrees(Math.cos(num)),
+    return React.createElement("div", null, React.createElement(Pedal_1.default, {
+      idx: 0,
+      transX: radians_to_degrees(Math.sin(num)) * 5,
+      transY: radians_to_degrees(Math.cos(num)) * 5,
       rgbColors: [backAndForth, 10, backAndForth / 2 + 100],
-      rotateAmount: n,
+      // rotateAmount={180}
+      rotateAmount: radians_to_degrees(coordsToAngle(0, radians_to_degrees(Math.sin(num)) * 5, 0, radians_to_degrees(Math.cos(num)) * 5)),
+      // rotateAmount={radians_to_degrees(Math.sin(n))}
       backAndForth: backAndForth,
-      top: 1,
-      left: 1
-    });
+      top: 0,
+      left: 0
+    }));
   }));
 };
 
@@ -28708,7 +28724,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57676" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60020" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
