@@ -4,7 +4,7 @@ import Pedal from "./Pedal";
 const Flower = () => {
   const [n, setN] = useState(90);
   const [backAndForth, setbackAndForth] = useState(1);
-  const [delay, setDelay] = useState(100);
+  const [delay, setDelay] = useState(1);
   const [clearTimer, setClearTimer] = useState(false);
   const [rising, setRising] = useState(true);
 
@@ -38,7 +38,7 @@ const Flower = () => {
       if (n % 10 === 0) {
         let stop = true;
       }
-      if (n > 3000) {
+      if (n > 6000) {
         setClearTimer(true);
       }
     }, delay);

@@ -28331,7 +28331,6 @@ var React = __importStar(require("react"));
 var Pedal = function Pedal(props) {
   var clrs = props.rgbColors;
   var colStr = "rgb(".concat(clrs[0], ",").concat(clrs[1], ",").concat(clrs[2], ")");
-  console.log("rotate amount", props.rotateAmount);
   return React.createElement("div", {
     style: {
       // backgroundColor: `rgb(100, 1, 10)`,
@@ -28443,7 +28442,7 @@ var Flower = function Flower() {
       backAndForth = _react_1$useState4[0],
       setbackAndForth = _react_1$useState4[1];
 
-  var _react_1$useState5 = react_1.useState(100),
+  var _react_1$useState5 = react_1.useState(1),
       _react_1$useState6 = _slicedToArray(_react_1$useState5, 2),
       delay = _react_1$useState6[0],
       setDelay = _react_1$useState6[1];
@@ -28508,7 +28507,7 @@ var Flower = function Flower() {
         var stop = true;
       }
 
-      if (n > 3000) {
+      if (n > 6000) {
         setClearTimer(true);
       }
     }, delay);
