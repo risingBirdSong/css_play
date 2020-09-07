@@ -28333,7 +28333,7 @@ var Pedal = function Pedal(props) {
   var colStr = "rgb(".concat(clrs[0], ",").concat(clrs[1], ",").concat(clrs[2], ")");
   return React.createElement("div", {
     style: {
-      // backgroundColor: `rgb(100, 1, 10)`,
+      // backgroundColor: colStr,
       padding: "".concat(props.backAndForth, "px"),
       // margin: "80px",
       overflow: "hidden",
@@ -28343,16 +28343,19 @@ var Pedal = function Pedal(props) {
       width: "100px",
       top: props.top,
       left: props.left,
-      borderRadius: "50px/100px",
+      borderRadius: "100px",
       // boxShadow: "10px 10px 10px purple",
       borderTop: "5px solid ".concat(colStr),
-      borderRight: "5px solid  ".concat(colStr),
       borderBottom: "5px solid  ".concat(colStr),
-      borderLeft: "5px solid  ".concat(colStr),
-      borderBottomLeftRadius: "50px",
-      borderBottomRightRadius: "50px",
+      borderRight: "5px solid purple",
+      // borderBottom: `5px solid plum`,
+      borderLeft: "5px solid  blueviolet",
+      // borderRight: `5px solid  ${colStr}`,
+      // borderLeft: `5px solid  ${colStr}`,
+      // borderBottomLeftRadius: "50px",
+      // borderBottomRightRadius: "50px",
       // transform: ``,
-      transform: "translate(".concat(props.transX, "px, ").concat(props.transY, "px) rotate(").concat(props.rotateAmount + 90, "deg)")
+      transform: "translate(".concat(props.transX, "px, ").concat(props.transY, "px) rotate(").concat(props.rotateAmount, "deg)")
     }
   });
 };
@@ -28437,12 +28440,12 @@ var Flower = function Flower() {
       n = _react_1$useState2[0],
       setN = _react_1$useState2[1];
 
-  var _react_1$useState3 = react_1.useState(1),
+  var _react_1$useState3 = react_1.useState(5),
       _react_1$useState4 = _slicedToArray(_react_1$useState3, 2),
       backAndForth = _react_1$useState4[0],
       setbackAndForth = _react_1$useState4[1];
 
-  var _react_1$useState5 = react_1.useState(1),
+  var _react_1$useState5 = react_1.useState(0.1),
       _react_1$useState6 = _slicedToArray(_react_1$useState5, 2),
       delay = _react_1$useState6[0],
       setDelay = _react_1$useState6[1];
@@ -28485,21 +28488,23 @@ var Flower = function Flower() {
         return ++prev;
       });
 
-      if (n % 255 === 0) {
-        setRising(function (prv) {
-          return !prv;
-        });
+      if (backAndForth >= 100) {
+        setRising(false);
+      }
+
+      if (backAndForth <= 5) {
+        setRising(true);
       }
 
       if (rising) {
         setbackAndForth(function (prv) {
-          return ++prv;
+          return prv += 1;
         });
       }
 
       if (!rising) {
         setbackAndForth(function (prv) {
-          return --prv;
+          return prv -= 1;
         });
       }
 
