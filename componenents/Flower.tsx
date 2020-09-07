@@ -16,6 +16,7 @@ const Flower = () => {
     return radians * (180 / pi);
   }
 
+  //https://stackoverflow.com/questions/15994194/how-to-convert-x-y-coordinates-to-an-angle
   function coordsToAngle(x1: number, x2: number, y1: number, y2: number) {
     let deltaX = x2 - x1;
     let deltaY = y2 - y1;

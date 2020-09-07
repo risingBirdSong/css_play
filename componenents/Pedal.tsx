@@ -12,17 +12,12 @@ export interface PedalProps {
 const Pedal = (props: PedalProps) => {
   let clrs = props.rgbColors;
   let colStr = `rgb(${clrs[0]},${clrs[1]},${clrs[2]})`;
-  console.log("x", props.transX);
-  console.log("y", props.transY);
-
-  console.log("props angle", props.rotateAmount);
-  console.log("geometry", Math.sin(props.transY) / Math.cos(props.transX));
 
   return (
     <div
       style={{
         // backgroundColor: `rgb(100, 1, 10)`,
-        // padding: "100px",
+        padding: "100px",
         // margin: "80px",
         overflow: "hidden",
         position: "absolute",

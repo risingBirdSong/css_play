@@ -28331,14 +28331,10 @@ var React = __importStar(require("react"));
 var Pedal = function Pedal(props) {
   var clrs = props.rgbColors;
   var colStr = "rgb(".concat(clrs[0], ",").concat(clrs[1], ",").concat(clrs[2], ")");
-  console.log("x", props.transX);
-  console.log("y", props.transY);
-  console.log("props angle", props.rotateAmount);
-  console.log("geometry", Math.sin(props.transY) / Math.cos(props.transX));
   return React.createElement("div", {
     style: {
       // backgroundColor: `rgb(100, 1, 10)`,
-      // padding: "100px",
+      padding: "100px",
       // margin: "80px",
       overflow: "hidden",
       position: "absolute",
@@ -28474,7 +28470,8 @@ var Flower = function Flower() {
   function radians_to_degrees(radians) {
     var pi = Math.PI;
     return radians * (180 / pi);
-  }
+  } //https://stackoverflow.com/questions/15994194/how-to-convert-x-y-coordinates-to-an-angle
+
 
   function coordsToAngle(x1, x2, y1, y2) {
     var deltaX = x2 - x1;
