@@ -21,7 +21,7 @@ const Pedal = (props: PedalProps) => {
         // margin: "80px",
         // overflow: "hidden",
         position: "absolute",
-        // border: "50px solid gold",
+        border: "10px solid gold",
         height: `0px`,
         width: `0px`,
         top: props.top,
@@ -31,7 +31,7 @@ const Pedal = (props: PedalProps) => {
         borderTop: `50px solid transparent`,
         borderBottom: `50px solid  transparent`,
         borderRight: `50px solid transparent`,
-        borderLeft: `200px solid  ${colStr}`,
+        borderLeft: `200px double  ${colStr}`,
         // borderBottom: `50px solid plum`,
         // borderRight: `5px solid  ${colStr}`,
         // borderLeft: `5px solid  ${colStr}`,
@@ -41,7 +41,7 @@ const Pedal = (props: PedalProps) => {
         // transform: ``,
         transform: `translate(${props.transX}px, ${props.transY}px) rotate(${
           props.rotateAmount + 90 + props.backAndForth
-        }deg) scale(${(props.idx + 1) / 25})`,
+        }deg) scale(${(props.idx + 1) / 15})`,
         //@ts-ignore
         // transform: `rotate(${props.rotateAmount}deg)`,
       }}

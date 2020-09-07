@@ -28338,7 +28338,7 @@ var Pedal = function Pedal(props) {
       // margin: "80px",
       // overflow: "hidden",
       position: "absolute",
-      // border: "50px solid gold",
+      border: "10px solid gold",
       height: "0px",
       width: "0px",
       top: props.top,
@@ -28348,14 +28348,14 @@ var Pedal = function Pedal(props) {
       borderTop: "50px solid transparent",
       borderBottom: "50px solid  transparent",
       borderRight: "50px solid transparent",
-      borderLeft: "200px solid  ".concat(colStr),
+      borderLeft: "200px double  ".concat(colStr),
       // borderBottom: `50px solid plum`,
       // borderRight: `5px solid  ${colStr}`,
       // borderLeft: `5px solid  ${colStr}`,
       // borderBottomLeftRadius: "10px",
       // borderBottomRightRadius: "10px",
       // transform: ``,
-      transform: "translate(".concat(props.transX, "px, ").concat(props.transY, "px) rotate(").concat(props.rotateAmount + 90 + props.backAndForth, "deg) scale(").concat((props.idx + 1) / 25, ")")
+      transform: "translate(".concat(props.transX, "px, ").concat(props.transY, "px) rotate(").concat(props.rotateAmount + 90 + props.backAndForth, "deg) scale(").concat((props.idx + 1) / 15, ")")
     }
   });
 };
@@ -28545,6 +28545,17 @@ var Flower = function Flower() {
       rgbColors: [backAndForth, 10, backAndForth / 2 + 100],
       // rotateAmount={180}
       rotateAmount: radians_to_degrees(coordsToAngle(0, radians_to_degrees(Math.sin(num)) * 5, 0, radians_to_degrees(Math.cos(num)) * 5)),
+      // rotateAmount={radians_to_degrees(Math.sin(n))}
+      backAndForth: backAndForth,
+      top: 0,
+      left: 0
+    }), React.createElement(Pedal_1.default, {
+      idx: Math.floor(idx / 2),
+      transX: radians_to_degrees(Math.sin(num)) * 3,
+      transY: radians_to_degrees(Math.cos(num)) * 3,
+      rgbColors: [backAndForth, 10, backAndForth / 2 + 100],
+      // rotateAmount={180}
+      rotateAmount: radians_to_degrees(coordsToAngle(0, radians_to_degrees(Math.sin(num)) * 3, 0, radians_to_degrees(Math.cos(num)) * 3)),
       // rotateAmount={radians_to_degrees(Math.sin(n))}
       backAndForth: backAndForth,
       top: 0,

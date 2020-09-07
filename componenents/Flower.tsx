@@ -89,6 +89,25 @@ const Flower = () => {
               top={0}
               left={0}
             />
+            <Pedal
+              idx={Math.floor(idx / 2)}
+              transX={radians_to_degrees(Math.sin(num)) * 3}
+              transY={radians_to_degrees(Math.cos(num)) * 3}
+              rgbColors={[backAndForth, 10, backAndForth / 2 + 100]}
+              // rotateAmount={180}
+              rotateAmount={radians_to_degrees(
+                coordsToAngle(
+                  0,
+                  radians_to_degrees(Math.sin(num)) * 3,
+                  0,
+                  radians_to_degrees(Math.cos(num)) * 3
+                )
+              )}
+              // rotateAmount={radians_to_degrees(Math.sin(n))}
+              backAndForth={backAndForth}
+              top={0}
+              left={0}
+            />
           </div>
         );
       })}
