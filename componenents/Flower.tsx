@@ -1,116 +1,84 @@
 import * as React from "react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Pedal from "./Pedal";
+import { Box, Button, Container } from "@material-ui/core";
 const Flower = () => {
-  const [n, setN] = useState(24);
-  const [backAndForth, setbackAndForth] = useState(100);
-  const [delay, setDelay] = useState(1);
-  const [clearTimer, setClearTimer] = useState(false);
-  const [rising, setRising] = useState(true);
-
-  let [nums, setNums] = useState([...Array(n).keys()]);
-  const [restart, setRestart] = useState(false);
-
-  function radians_to_degrees(radians: number) {
-    var pi = Math.PI;
-    return radians * (180 / pi);
-  }
-
-  //https://stackoverflow.com/questions/15994194/how-to-convert-x-y-coordinates-to-an-angle
-  function coordsToAngle(x1: number, x2: number, y1: number, y2: number) {
-    let deltaX = x2 - x1;
-    let deltaY = y2 - y1;
-    return Math.atan2(deltaY, deltaX);
-  }
-
-  useEffect(() => {
-    const timing = setTimeout(() => {
-      setN((prev) => ++prev);
-      if (backAndForth >= 360) {
-        setRising(false);
-      }
-      if (backAndForth <= 5) {
-        setRising(true);
-      }
-      if (rising) {
-        setbackAndForth((prv) => (prv += 1));
-      }
-      if (!rising) {
-        setbackAndForth((prv) => (prv -= 1));
-      }
-      if (n % 10 === 0) {
-        let stop = true;
-      }
-      if (n > 6000) {
-        setClearTimer(true);
-      }
-    }, delay);
-    if (clearTimer) {
-      return clearTimeout(timing);
-    }
-  }, [n]);
-
+  let nums = [...Array(100).keys()].slice(1);
+  const [optionsNum, setoptionsNum] = useState(0);
+  const Nav = () => {
+    return (
+      <Container
+        component="div"
+        style={{ border: "1px solid black", padding: "10px", margin: "100px" }}
+      >
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={() => {
+            setoptionsNum(0);
+          }}
+        >
+          spiral
+        </Button>
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={() => {
+            setoptionsNum(1);
+          }}
+        >
+          test
+        </Button>
+      </Container>
+    );
+  };
   return (
-    <div
-      className="flower"
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        position: "absolute",
-        flexDirection: "column",
-        top: "40%",
-        left: "50%",
-        alignItems: "center",
-      }}
-    >
-      {nums.map((num, idx) => {
-        function radians_to_degrees(radians: number) {
-          var pi = Math.PI;
-          return radians * (180 / pi);
-        }
-        return (
-          <div>
+    <div>
+      <Nav />
+
+      <div
+        className="flower"
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          position: "absolute",
+          flexDirection: "column",
+          top: "30%",
+          left: "50%",
+          alignItems: "center",
+        }}
+      >
+        {nums.map((num) => {
+          let optionArray = [
+            {
+              colors: [((num * 2) % 255) + 50, 1, (num * 2 + 150) % 255],
+              rotateAmount: num * 10,
+              height: 200,
+              width: 100,
+              top: num * 3,
+              left: num * 3,
+            },
+            {
+              colors: [0, 255, 0],
+              rotateAmount: num * 100,
+              height: 300,
+              width: 200,
+              top: num * 5,
+              left: num * 5,
+            },
+          ];
+          return (
             <Pedal
-              idx={idx}
-              transX={radians_to_degrees(Math.sin(num)) * 5}
-              transY={radians_to_degrees(Math.cos(num)) * 5}
-              rgbColors={[backAndForth, 10, backAndForth / 2 + 100]}
-              // rotateAmount={180}
-              rotateAmount={radians_to_degrees(
-                coordsToAngle(
-                  0,
-                  radians_to_degrees(Math.sin(num)) * 5,
-                  0,
-                  radians_to_degrees(Math.cos(num)) * 5
-                )
-              )}
-              // rotateAmount={radians_to_degrees(Math.sin(n))}
-              backAndForth={backAndForth}
-              top={0}
-              left={0}
+              rgbColors={optionArray[optionsNum].colors}
+              rotateAmount={optionArray[optionsNum].rotateAmount}
+              height={optionArray[optionsNum].height}
+              width={optionArray[optionsNum].width}
+              top={optionArray[optionsNum].top}
+              left={optionArray[optionsNum].left}
             />
-            <Pedal
-              idx={Math.floor(idx / 2)}
-              transX={radians_to_degrees(Math.sin(num)) * 3}
-              transY={radians_to_degrees(Math.cos(num)) * 3}
-              rgbColors={[backAndForth, 10, backAndForth / 2 + 100]}
-              // rotateAmount={180}
-              rotateAmount={radians_to_degrees(
-                coordsToAngle(
-                  0,
-                  radians_to_degrees(Math.sin(num)) * 3,
-                  0,
-                  radians_to_degrees(Math.cos(num)) * 3
-                )
-              )}
-              // rotateAmount={radians_to_degrees(Math.sin(n))}
-              backAndForth={backAndForth}
-              top={0}
-              left={0}
-            />
-          </div>
-        );
-      })}
+          );
+        })}
+      </div>
     </div>
   );
 };
