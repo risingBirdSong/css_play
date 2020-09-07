@@ -37,6 +37,7 @@
 
 .idx0 {
   background-color: blue;
+  /* transform : scale() */
 }
 .idx1 {
   background-color: blueviolet;

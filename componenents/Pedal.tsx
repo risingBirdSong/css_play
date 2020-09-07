@@ -27,7 +27,7 @@ const Pedal = (props: PedalProps) => {
         top: props.top,
         left: props.left,
         borderRadius: "100px",
-        boxShadow: "2px 2px 2px 2px gold",
+        // boxShadow: "2px 2px 2px 2px gold",
         borderTop: `50px solid transparent`,
         borderBottom: `50px solid  transparent`,
         borderRight: `50px solid transparent`,
@@ -40,8 +40,8 @@ const Pedal = (props: PedalProps) => {
 
         // transform: ``,
         transform: `translate(${props.transX}px, ${props.transY}px) rotate(${
-          props.rotateAmount - 90 + props.backAndForth
-        }deg)`,
+          props.rotateAmount + 90 + props.backAndForth
+        }deg) scale(${(props.idx + 1) / 25})`,
         //@ts-ignore
         // transform: `rotate(${props.rotateAmount}deg)`,
       }}

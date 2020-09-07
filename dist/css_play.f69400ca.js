@@ -28344,7 +28344,7 @@ var Pedal = function Pedal(props) {
       top: props.top,
       left: props.left,
       borderRadius: "100px",
-      boxShadow: "2px 2px 2px 2px gold",
+      // boxShadow: "2px 2px 2px 2px gold",
       borderTop: "50px solid transparent",
       borderBottom: "50px solid  transparent",
       borderRight: "50px solid transparent",
@@ -28355,7 +28355,7 @@ var Pedal = function Pedal(props) {
       // borderBottomLeftRadius: "10px",
       // borderBottomRightRadius: "10px",
       // transform: ``,
-      transform: "translate(".concat(props.transX, "px, ").concat(props.transY, "px) rotate(").concat(props.rotateAmount - 90 + props.backAndForth, "deg)")
+      transform: "translate(".concat(props.transX, "px, ").concat(props.transY, "px) rotate(").concat(props.rotateAmount + 90 + props.backAndForth, "deg) scale(").concat((props.idx + 1) / 25, ")")
     }
   });
 };
@@ -28528,7 +28528,7 @@ var Flower = function Flower() {
       justifyContent: "center",
       position: "absolute",
       flexDirection: "column",
-      top: "30%",
+      top: "40%",
       left: "50%",
       alignItems: "center"
     }
@@ -28539,7 +28539,7 @@ var Flower = function Flower() {
     }
 
     return React.createElement("div", null, React.createElement(Pedal_1.default, {
-      idx: backAndForth,
+      idx: idx,
       transX: radians_to_degrees(Math.sin(num)) * 5,
       transY: radians_to_degrees(Math.cos(num)) * 5,
       rgbColors: [backAndForth, 10, backAndForth / 2 + 100],

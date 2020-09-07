@@ -58,7 +58,7 @@ const Flower = () => {
         justifyContent: "center",
         position: "absolute",
         flexDirection: "column",
-        top: "30%",
+        top: "40%",
         left: "50%",
         alignItems: "center",
       }}
@@ -71,7 +71,7 @@ const Flower = () => {
         return (
           <div>
             <Pedal
-              idx={backAndForth}
+              idx={idx}
               transX={radians_to_degrees(Math.sin(num)) * 5}
               transY={radians_to_degrees(Math.cos(num)) * 5}
               rgbColors={[backAndForth, 10, backAndForth / 2 + 100]}
