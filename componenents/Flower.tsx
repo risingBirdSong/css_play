@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import Pedal from "./Pedal";
 const Flower = () => {
   const [n, setN] = useState(24);
-  const [backAndForth, setbackAndForth] = useState(5);
+  const [backAndForth, setbackAndForth] = useState(100);
   const [delay, setDelay] = useState(1);
   const [clearTimer, setClearTimer] = useState(false);
   const [rising, setRising] = useState(true);
