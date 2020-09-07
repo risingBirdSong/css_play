@@ -45,7 +45,7 @@ const Flower = () => {
     if (clearTimer) {
       return clearTimeout(timing);
     }
-  }, []);
+  }, [n]);
 
   return (
     <div

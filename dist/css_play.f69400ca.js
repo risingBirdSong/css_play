@@ -28335,7 +28335,7 @@ var Pedal = function Pedal(props) {
   return React.createElement("div", {
     style: {
       // backgroundColor: `rgb(100, 1, 10)`,
-      padding: "100px",
+      padding: "".concat(props.backAndForth, "px"),
       // margin: "80px",
       overflow: "hidden",
       position: "absolute",
@@ -28516,7 +28516,7 @@ var Flower = function Flower() {
     if (clearTimer) {
       return clearTimeout(timing);
     }
-  }, []);
+  }, [n]);
   return React.createElement("div", {
     className: "flower",
     style: {
