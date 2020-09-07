@@ -28339,23 +28339,23 @@ var Pedal = function Pedal(props) {
       overflow: "hidden",
       position: "absolute",
       border: "5px solid gold",
-      height: "100px",
-      width: "".concat(props.backAndForth),
+      height: "0px",
+      width: "0px",
       top: props.top,
       left: props.left,
       borderRadius: "90px/100px",
       // boxShadow: "10px 10px 10px purple",
-      borderTop: "5px solid ".concat(colStr),
-      borderBottom: "5px solid  ".concat(colStr),
-      borderRight: "5px solid ".concat(colStr),
-      // borderBottom: `5px solid plum`,
-      borderLeft: "5px solid  ".concat(colStr),
+      borderTop: "100px solid transparent",
+      borderBottom: "100px solid  transparent",
+      borderRight: "100px solid transparent",
+      borderLeft: "100px solid  ".concat(colStr),
+      // borderBottom: `50px solid plum`,
       // borderRight: `5px solid  ${colStr}`,
       // borderLeft: `5px solid  ${colStr}`,
       // borderBottomLeftRadius: "10px",
       // borderBottomRightRadius: "10px",
       // transform: ``,
-      transform: "translate(".concat(props.transX, "px, ").concat(props.transY, "px) rotate(").concat(props.rotateAmount, "deg)")
+      transform: "translate(".concat(props.transX, "px, ").concat(props.transY, "px) rotate(").concat(props.rotateAmount + 90, "deg)")
     }
   });
 };
@@ -28435,7 +28435,7 @@ var react_1 = require("react");
 var Pedal_1 = __importDefault(require("./Pedal"));
 
 var Flower = function Flower() {
-  var _react_1$useState = react_1.useState(90),
+  var _react_1$useState = react_1.useState(6),
       _react_1$useState2 = _slicedToArray(_react_1$useState, 2),
       n = _react_1$useState2[0],
       setN = _react_1$useState2[1];

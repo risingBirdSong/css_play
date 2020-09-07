@@ -2,7 +2,7 @@ import * as React from "react";
 import { useState, useEffect } from "react";
 import Pedal from "./Pedal";
 const Flower = () => {
-  const [n, setN] = useState(90);
+  const [n, setN] = useState(6);
   const [backAndForth, setbackAndForth] = useState(5);
   const [delay, setDelay] = useState(0.1);
   const [clearTimer, setClearTimer] = useState(false);
