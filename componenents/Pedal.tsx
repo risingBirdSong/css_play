@@ -21,7 +21,7 @@ const Pedal = (props: PedalProps) => {
         // margin: "80px",
         // overflow: "hidden",
         position: "absolute",
-        height: `${props.backAndForth}`,
+        height: `${props.backAndForth}px`,
         width: `100px`,
         top: props.top,
         left: props.left,

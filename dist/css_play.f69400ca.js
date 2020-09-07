@@ -28338,7 +28338,7 @@ var Pedal = function Pedal(props) {
       // margin: "80px",
       // overflow: "hidden",
       position: "absolute",
-      height: "".concat(props.backAndForth),
+      height: "".concat(props.backAndForth, "px"),
       width: "100px",
       top: props.top,
       left: props.left,
