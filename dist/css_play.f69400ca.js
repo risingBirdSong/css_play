@@ -28335,7 +28335,7 @@ var Pedal = function Pedal(props) {
   return React.createElement("div", {
     style: {
       // backgroundColor: `rgb(100, 1, 10)`,
-      // padding: "100px",
+      padding: "100px",
       // margin: "80px",
       overflow: "hidden",
       position: "absolute",
