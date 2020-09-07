@@ -28331,10 +28331,11 @@ var React = __importStar(require("react"));
 var Pedal = function Pedal(props) {
   var clrs = props.rgbColors;
   var colStr = "rgb(".concat(clrs[0], ",").concat(clrs[1], ",").concat(clrs[2], ")");
+  console.log("rotate amount", props.rotateAmount);
   return React.createElement("div", {
     style: {
       // backgroundColor: `rgb(100, 1, 10)`,
-      padding: "100px",
+      // padding: "100px",
       // margin: "80px",
       overflow: "hidden",
       position: "absolute",
@@ -28344,7 +28345,7 @@ var Pedal = function Pedal(props) {
       top: props.top,
       left: props.left,
       borderRadius: "50px/100px",
-      boxShadow: "10px 10px 10px purple",
+      // boxShadow: "10px 10px 10px purple",
       borderTop: "5px solid ".concat(colStr),
       borderRight: "5px solid  ".concat(colStr),
       borderBottom: "5px solid  ".concat(colStr),
@@ -28352,7 +28353,7 @@ var Pedal = function Pedal(props) {
       borderBottomLeftRadius: "50px",
       borderBottomRightRadius: "50px",
       // transform: ``,
-      transform: "translate(".concat(props.transX, "px, ").concat(props.transY, "px) rotate(").concat(props.rotateAmount, "deg)")
+      transform: "translate(".concat(props.transX, "px, ").concat(props.transY, "px) rotate(").concat(props.rotateAmount + 90, "deg)")
     }
   });
 };
@@ -28534,7 +28535,7 @@ var Flower = function Flower() {
     }
 
     return React.createElement("div", null, React.createElement(Pedal_1.default, {
-      idx: 0,
+      idx: backAndForth,
       transX: radians_to_degrees(Math.sin(num)) * 5,
       transY: radians_to_degrees(Math.cos(num)) * 5,
       rgbColors: [backAndForth, 10, backAndForth / 2 + 100],
@@ -28721,7 +28722,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60020" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62678" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

@@ -12,12 +12,13 @@ export interface PedalProps {
 const Pedal = (props: PedalProps) => {
   let clrs = props.rgbColors;
   let colStr = `rgb(${clrs[0]},${clrs[1]},${clrs[2]})`;
+  console.log("rotate amount", props.rotateAmount);
 
   return (
     <div
       style={{
         // backgroundColor: `rgb(100, 1, 10)`,
-        padding: "100px",
+        // padding: "100px",
         // margin: "80px",
         overflow: "hidden",
         position: "absolute",
@@ -27,7 +28,7 @@ const Pedal = (props: PedalProps) => {
         top: props.top,
         left: props.left,
         borderRadius: "50px/100px",
-        boxShadow: "10px 10px 10px purple",
+        // boxShadow: "10px 10px 10px purple",
         borderTop: `5px solid ${colStr}`,
         borderRight: `5px solid  ${colStr}`,
         borderBottom: `5px solid  ${colStr}`,
@@ -36,7 +37,9 @@ const Pedal = (props: PedalProps) => {
         borderBottomRightRadius: "50px",
 
         // transform: ``,
-        transform: `translate(${props.transX}px, ${props.transY}px) rotate(${props.rotateAmount}deg)`,
+        transform: `translate(${props.transX}px, ${props.transY}px) rotate(${
+          props.rotateAmount + 90
+        }deg)`,
         //@ts-ignore
         // transform: `rotate(${props.rotateAmount}deg)`,
       }}
