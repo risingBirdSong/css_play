@@ -28433,7 +28433,7 @@ var react_1 = require("react");
 var Pedal_1 = __importDefault(require("./Pedal"));
 
 var Flower = function Flower() {
-  var _react_1$useState = react_1.useState(21),
+  var _react_1$useState = react_1.useState(90),
       _react_1$useState2 = _slicedToArray(_react_1$useState, 2),
       n = _react_1$useState2[0],
       setN = _react_1$useState2[1];
