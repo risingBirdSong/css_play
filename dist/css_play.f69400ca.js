@@ -28351,8 +28351,7 @@ var Pedal = function Pedal(props) {
       borderBottomRightRadius: props.borderBottomRightRadius,
       borderBottomLeftRadius: props.borderBottomLeftRadius,
       borderTop: props.borderTop || "4px solid ".concat(colStr),
-      borderBottom: props.borderBottom,
-      borderRadius: props.borderRadius
+      borderBottom: props.borderBottom
     }
   });
 };
@@ -80964,6 +80963,10 @@ var Flower = function Flower() {
       padding: "15px",
       borderRadius: "100px",
       marginTop: "100px",
+      borderBottomLeftRadius: "100px",
+      borderBottomRightRadius: "100px",
+      borderTopLeftRadius: "100px",
+      borderTopRightRadius: "100px",
       transX: radians_to_degrees(Math.cos(num)) * 3,
       transY: radians_to_degrees(Math.sin(num)) * 3
     }];
