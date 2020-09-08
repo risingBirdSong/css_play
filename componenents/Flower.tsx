@@ -2,13 +2,14 @@ import * as React from "react";
 import { useState, useEffect } from "react";
 import Pedal from "./Pedal";
 import { Box, Button, Container } from "@material-ui/core";
-let buttonMapping: [string, number][] = [
+let staticMapping: [string, number][] = [
   ["spiral", 0],
   ["shell", 1],
   ["shell with shadow", 2],
   ["arcWreath", 3],
-  ["anim shape", 5],
 ];
+
+let animMapping: [string, number][] = [["anim test", 0]];
 interface optionsI {
   colors: number[];
   rotateAmount: number;
@@ -36,47 +37,35 @@ function radians_to_degrees(radians: number) {
 const Flower = () => {
   const [n, setN] = useState(100);
   let [nums, setNums] = useState([...Array(n).keys()].slice(n - 99));
-  const [anim, setAnim] = useState(false);
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      if (anim) {
-        console.log("should not hit");
-        setN((preV) => preV + 1);
-        setNums([...Array(n).keys()].map((num) => num + n).slice(n - 99));
-      }
-    }, 1);
-    return () => clearTimeout(timer);
-  }, []);
+  const [staticOptionsNum, setStaticOptionsNum] = useState(0);
 
-  const [optionsNum, setoptionsNum] = useState(0);
   const Nav = () => {
-    console.log("nums", nums);
-
     return (
-      <Container
-        component="div"
-        style={{ border: "1px solid black", padding: "10px", margin: "100px" }}
-      >
-        {buttonMapping.map((tuple) => (
-          <Button
-            variant="contained"
-            color="primary"
-            style={{ margin: "2px" }}
-            onClick={() => {
-              if (tuple[0].includes("anim")) {
-                setAnim(true);
-              } else {
-                setAnim(false);
-              }
-              setoptionsNum(tuple[1]);
-            }}
-          >
-            {" "}
-            {tuple[0]}{" "}
-          </Button>
-        ))}
-      </Container>
+      <div>
+        <Container
+          component="div"
+          style={{
+            border: "1px solid black",
+            padding: "10px",
+            margin: "100px",
+          }}
+        >
+          {staticMapping.map((tuple) => (
+            <Button
+              variant="contained"
+              color="primary"
+              style={{ margin: "2px" }}
+              onClick={() => {
+                setStaticOptionsNum(tuple[1]);
+              }}
+            >
+              {" "}
+              {tuple[0]}{" "}
+            </Button>
+          ))}
+        </Container>
+      </div>
     );
   };
   return (
@@ -96,7 +85,7 @@ const Flower = () => {
         }}
       >
         {nums.map((num) => {
-          let optionArray: optionsI[] = [
+          let staticOptionArray: optionsI[] = [
             {
               colors: [((num * 2) % 255) + 50, 1, (num + 150) % 255],
               rotateAmount: num * 10,
@@ -184,30 +173,30 @@ const Flower = () => {
           return (
             <div>
               <Pedal
-                transX={optionArray[optionsNum].transX}
-                transY={optionArray[optionsNum].transY}
-                marginTop={optionArray[optionsNum].marginTop}
+                transX={staticOptionArray[staticOptionsNum].transX}
+                transY={staticOptionArray[staticOptionsNum].transY}
+                marginTop={staticOptionArray[staticOptionsNum].marginTop}
                 borderBottomLeftRadius={
-                  optionArray[optionsNum].borderBottomLeftRadius
+                  staticOptionArray[staticOptionsNum].borderBottomLeftRadius
                 }
                 borderBottomRightRadius={
-                  optionArray[optionsNum].borderBottomRightRadius
+                  staticOptionArray[staticOptionsNum].borderBottomRightRadius
                 }
                 borderTopLeftRadius={
-                  optionArray[optionsNum].borderTopLeftRadius
+                  staticOptionArray[staticOptionsNum].borderTopLeftRadius
                 }
                 borderTopRightRadius={
-                  optionArray[optionsNum].borderTopRightRadius
+                  staticOptionArray[staticOptionsNum].borderTopRightRadius
                 }
-                padding={optionArray[optionsNum].padding}
-                rgbColors={optionArray[optionsNum].colors}
-                rotateAmount={optionArray[optionsNum].rotateAmount}
-                height={optionArray[optionsNum].height}
-                width={optionArray[optionsNum].width}
-                top={optionArray[optionsNum].top}
-                left={optionArray[optionsNum].left}
-                borderRadius={optionArray[optionsNum].borderRadius}
-                boxShadow={optionArray[optionsNum].boxShadow}
+                padding={staticOptionArray[staticOptionsNum].padding}
+                rgbColors={staticOptionArray[staticOptionsNum].colors}
+                rotateAmount={staticOptionArray[staticOptionsNum].rotateAmount}
+                height={staticOptionArray[staticOptionsNum].height}
+                width={staticOptionArray[staticOptionsNum].width}
+                top={staticOptionArray[staticOptionsNum].top}
+                left={staticOptionArray[staticOptionsNum].left}
+                borderRadius={staticOptionArray[staticOptionsNum].borderRadius}
+                boxShadow={staticOptionArray[staticOptionsNum].boxShadow}
               />
             </div>
           );

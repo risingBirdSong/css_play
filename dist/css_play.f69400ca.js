@@ -28331,7 +28331,6 @@ var React = __importStar(require("react"));
 var Pedal = function Pedal(props) {
   var clrs = props.rgbColors;
   var colStr = "rgb(".concat(clrs[0], ",").concat(clrs[1], ",").concat(clrs[2], ")");
-  console.log("box shadow", props.boxShadow);
   return React.createElement("div", {
     className: "pedal",
     style: {
@@ -80850,7 +80849,8 @@ var Pedal_1 = __importDefault(require("./Pedal"));
 
 var core_1 = require("@material-ui/core");
 
-var buttonMapping = [["spiral", 0], ["shell", 1], ["shell with shadow", 2], ["arcWreath", 3], ["anim shape", 5]];
+var staticMapping = [["spiral", 0], ["shell", 1], ["shell with shadow", 2], ["arcWreath", 3]];
+var animMapping = [["anim test", 0]];
 
 function radians_to_degrees(radians) {
   var pi = Math.PI;
@@ -80868,43 +80868,20 @@ var Flower = function Flower() {
       nums = _react_1$useState4[0],
       setNums = _react_1$useState4[1];
 
-  var _react_1$useState5 = react_1.useState(false),
+  var _react_1$useState5 = react_1.useState(0),
       _react_1$useState6 = _slicedToArray(_react_1$useState5, 2),
-      anim = _react_1$useState6[0],
-      setAnim = _react_1$useState6[1];
-
-  react_1.useEffect(function () {
-    var timer = setTimeout(function () {
-      if (anim) {
-        console.log("should not hit");
-        setN(function (preV) {
-          return preV + 1;
-        });
-        setNums(_toConsumableArray(Array(n).keys()).map(function (num) {
-          return num + n;
-        }).slice(n - 99));
-      }
-    }, 1);
-    return function () {
-      return clearTimeout(timer);
-    };
-  }, []);
-
-  var _react_1$useState7 = react_1.useState(0),
-      _react_1$useState8 = _slicedToArray(_react_1$useState7, 2),
-      optionsNum = _react_1$useState8[0],
-      setoptionsNum = _react_1$useState8[1];
+      staticOptionsNum = _react_1$useState6[0],
+      setStaticOptionsNum = _react_1$useState6[1];
 
   var Nav = function Nav() {
-    console.log("nums", nums);
-    return React.createElement(core_1.Container, {
+    return React.createElement("div", null, React.createElement(core_1.Container, {
       component: "div",
       style: {
         border: "1px solid black",
         padding: "10px",
         margin: "100px"
       }
-    }, buttonMapping.map(function (tuple) {
+    }, staticMapping.map(function (tuple) {
       return React.createElement(core_1.Button, {
         variant: "contained",
         color: "primary",
@@ -80912,16 +80889,10 @@ var Flower = function Flower() {
           margin: "2px"
         },
         onClick: function onClick() {
-          if (tuple[0].includes("anim")) {
-            setAnim(true);
-          } else {
-            setAnim(false);
-          }
-
-          setoptionsNum(tuple[1]);
+          setStaticOptionsNum(tuple[1]);
         }
       }, " ", tuple[0], " ");
-    }));
+    })));
   };
 
   return React.createElement("div", null, React.createElement(Nav, null), React.createElement("div", {
@@ -80936,7 +80907,7 @@ var Flower = function Flower() {
       alignItems: "center"
     }
   }, nums.map(function (num) {
-    var optionArray = [{
+    var staticOptionArray = [{
       colors: [num * 2 % 255 + 50, 1, (num + 150) % 255],
       rotateAmount: num * 10,
       height: 200,
@@ -81016,22 +80987,22 @@ var Flower = function Flower() {
       transY: radians_to_degrees(Math.sin(num)) * 2
     }];
     return React.createElement("div", null, React.createElement(Pedal_1.default, {
-      transX: optionArray[optionsNum].transX,
-      transY: optionArray[optionsNum].transY,
-      marginTop: optionArray[optionsNum].marginTop,
-      borderBottomLeftRadius: optionArray[optionsNum].borderBottomLeftRadius,
-      borderBottomRightRadius: optionArray[optionsNum].borderBottomRightRadius,
-      borderTopLeftRadius: optionArray[optionsNum].borderTopLeftRadius,
-      borderTopRightRadius: optionArray[optionsNum].borderTopRightRadius,
-      padding: optionArray[optionsNum].padding,
-      rgbColors: optionArray[optionsNum].colors,
-      rotateAmount: optionArray[optionsNum].rotateAmount,
-      height: optionArray[optionsNum].height,
-      width: optionArray[optionsNum].width,
-      top: optionArray[optionsNum].top,
-      left: optionArray[optionsNum].left,
-      borderRadius: optionArray[optionsNum].borderRadius,
-      boxShadow: optionArray[optionsNum].boxShadow
+      transX: staticOptionArray[staticOptionsNum].transX,
+      transY: staticOptionArray[staticOptionsNum].transY,
+      marginTop: staticOptionArray[staticOptionsNum].marginTop,
+      borderBottomLeftRadius: staticOptionArray[staticOptionsNum].borderBottomLeftRadius,
+      borderBottomRightRadius: staticOptionArray[staticOptionsNum].borderBottomRightRadius,
+      borderTopLeftRadius: staticOptionArray[staticOptionsNum].borderTopLeftRadius,
+      borderTopRightRadius: staticOptionArray[staticOptionsNum].borderTopRightRadius,
+      padding: staticOptionArray[staticOptionsNum].padding,
+      rgbColors: staticOptionArray[staticOptionsNum].colors,
+      rotateAmount: staticOptionArray[staticOptionsNum].rotateAmount,
+      height: staticOptionArray[staticOptionsNum].height,
+      width: staticOptionArray[staticOptionsNum].width,
+      top: staticOptionArray[staticOptionsNum].top,
+      left: staticOptionArray[staticOptionsNum].left,
+      borderRadius: staticOptionArray[staticOptionsNum].borderRadius,
+      boxShadow: staticOptionArray[staticOptionsNum].boxShadow
     }));
   })));
 };
@@ -81175,7 +81146,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59811" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61098" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

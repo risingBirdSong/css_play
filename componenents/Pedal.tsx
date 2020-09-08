@@ -22,8 +22,6 @@ export interface PedalProps {
 const Pedal = (props: PedalProps) => {
   let clrs = props.rgbColors;
   let colStr = `rgb(${clrs[0]},${clrs[1]},${clrs[2]})`;
-  console.log("box shadow", props.boxShadow);
-
   return (
     <div
       className="pedal"
