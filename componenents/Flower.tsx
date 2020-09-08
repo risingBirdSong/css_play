@@ -16,10 +16,13 @@ interface optionsI {
   top: number;
   left: number;
   padding: string;
-  borderTopLeftRadius: string;
-  borderTopRightRadius: string;
-  borderBottomRightRadius: string;
-  borderBottomLeftRadius: string;
+  borderTopLeftRadius?: string;
+  borderTopRightRadius?: string;
+  borderBottomRightRadius?: string;
+  borderBottomLeftRadius?: string;
+  borderRadius?: string;
+  borderTop?: string;
+  borderBottom?: string;
   marginTop: string;
   transX: number;
   transY: number;
@@ -127,10 +130,7 @@ const Flower = () => {
               top: 1,
               left: 1,
               padding: "15px",
-              borderTopLeftRadius: "100%",
-              borderTopRightRadius: "100%",
-              borderBottomRightRadius: "100%",
-              borderBottomLeftRadius: "100%",
+              borderRadius: "100px",
               marginTop: "100px",
               transX: radians_to_degrees(Math.cos(num)) * 3,
               transY: radians_to_degrees(Math.sin(num)) * 3,
@@ -158,6 +158,7 @@ const Flower = () => {
               width={optionArray[optionsNum].width}
               top={optionArray[optionsNum].top}
               left={optionArray[optionsNum].left}
+              borderRadius={optionArray[optionsNum].borderRadius}
             />
           );
         })}

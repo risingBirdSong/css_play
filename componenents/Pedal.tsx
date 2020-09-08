@@ -7,11 +7,14 @@ export interface PedalProps {
   width: number;
   rgbColors: [number, number, number] | number[];
   padding: string;
-  borderTopLeftRadius: string;
-  borderTopRightRadius: string;
-  borderBottomRightRadius: string;
-  borderBottomLeftRadius: string;
-  marginTop: string;
+  borderTopLeftRadius?: string;
+  borderTopRightRadius?: string;
+  borderBottomRightRadius?: string;
+  borderBottomLeftRadius?: string;
+  borderRadius?: string;
+  borderTop?: string;
+  borderBottom?: string;
+  marginTop?: string;
   transX: number;
   transY: number;
 }
@@ -39,11 +42,13 @@ const Pedal = (props: PedalProps) => {
         borderTopRightRadius: props.borderTopRightRadius,
         borderBottomRightRadius: props.borderBottomRightRadius,
         borderBottomLeftRadius: props.borderBottomLeftRadius,
+        borderTop: props.borderTop || `4px solid ${colStr}`,
+        borderBottom: props.borderBottom,
+        borderRadius: props.borderRadius,
         //  borderTopLeftRadius: "1%",
         // borderTopRightRadius: "100%",
         // borderBottomRightRadius: "1%",
         // borderBottomLeftRadius: "1%",
-        borderTop: `4px solid ${colStr}`,
       }}
     ></div>
   );

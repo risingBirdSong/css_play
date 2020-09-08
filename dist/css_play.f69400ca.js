@@ -28350,11 +28350,9 @@ var Pedal = function Pedal(props) {
       borderTopRightRadius: props.borderTopRightRadius,
       borderBottomRightRadius: props.borderBottomRightRadius,
       borderBottomLeftRadius: props.borderBottomLeftRadius,
-      //  borderTopLeftRadius: "1%",
-      // borderTopRightRadius: "100%",
-      // borderBottomRightRadius: "1%",
-      // borderBottomLeftRadius: "1%",
-      borderTop: "4px solid ".concat(colStr)
+      borderTop: props.borderTop || "4px solid ".concat(colStr),
+      borderBottom: props.borderBottom,
+      borderRadius: props.borderRadius
     }
   });
 };
@@ -80955,10 +80953,7 @@ var Flower = function Flower() {
       top: 1,
       left: 1,
       padding: "15px",
-      borderTopLeftRadius: "100%",
-      borderTopRightRadius: "100%",
-      borderBottomRightRadius: "100%",
-      borderBottomLeftRadius: "100%",
+      borderRadius: "100px",
       marginTop: "100px",
       transX: radians_to_degrees(Math.cos(num)) * 3,
       transY: radians_to_degrees(Math.sin(num)) * 3
@@ -80977,7 +80972,8 @@ var Flower = function Flower() {
       height: optionArray[optionsNum].height,
       width: optionArray[optionsNum].width,
       top: optionArray[optionsNum].top,
-      left: optionArray[optionsNum].left
+      left: optionArray[optionsNum].left,
+      borderRadius: optionArray[optionsNum].borderRadius
     });
   })));
 };
@@ -81121,7 +81117,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50140" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57625" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
