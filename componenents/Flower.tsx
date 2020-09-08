@@ -33,8 +33,8 @@ function radians_to_degrees(radians: number) {
 }
 const Flower = () => {
   let nums = [...Array(100).keys()].slice(1);
+
   const [optionsNum, setoptionsNum] = useState(0);
-  const [showPedal, setShowPedal] = useState(true);
   const Nav = () => {
     return (
       <Container
@@ -47,11 +47,7 @@ const Flower = () => {
             color="primary"
             style={{ margin: "2px" }}
             onClick={() => {
-              setShowPedal(false);
               setoptionsNum(tuple[1]);
-              setTimeout(() => {
-                setShowPedal(true);
-              }, 100);
             }}
           >
             {" "}
@@ -147,35 +143,31 @@ const Flower = () => {
           ];
           return (
             <div>
-              {showPedal ? (
-                <Pedal
-                  transX={optionArray[optionsNum].transX}
-                  transY={optionArray[optionsNum].transY}
-                  marginTop={optionArray[optionsNum].marginTop}
-                  borderBottomLeftRadius={
-                    optionArray[optionsNum].borderBottomLeftRadius
-                  }
-                  borderBottomRightRadius={
-                    optionArray[optionsNum].borderBottomRightRadius
-                  }
-                  borderTopLeftRadius={
-                    optionArray[optionsNum].borderTopLeftRadius
-                  }
-                  borderTopRightRadius={
-                    optionArray[optionsNum].borderTopRightRadius
-                  }
-                  padding={optionArray[optionsNum].padding}
-                  rgbColors={optionArray[optionsNum].colors}
-                  rotateAmount={optionArray[optionsNum].rotateAmount}
-                  height={optionArray[optionsNum].height}
-                  width={optionArray[optionsNum].width}
-                  top={optionArray[optionsNum].top}
-                  left={optionArray[optionsNum].left}
-                  borderRadius={optionArray[optionsNum].borderRadius}
-                />
-              ) : (
-                ""
-              )}
+              <Pedal
+                transX={optionArray[optionsNum].transX}
+                transY={optionArray[optionsNum].transY}
+                marginTop={optionArray[optionsNum].marginTop}
+                borderBottomLeftRadius={
+                  optionArray[optionsNum].borderBottomLeftRadius
+                }
+                borderBottomRightRadius={
+                  optionArray[optionsNum].borderBottomRightRadius
+                }
+                borderTopLeftRadius={
+                  optionArray[optionsNum].borderTopLeftRadius
+                }
+                borderTopRightRadius={
+                  optionArray[optionsNum].borderTopRightRadius
+                }
+                padding={optionArray[optionsNum].padding}
+                rgbColors={optionArray[optionsNum].colors}
+                rotateAmount={optionArray[optionsNum].rotateAmount}
+                height={optionArray[optionsNum].height}
+                width={optionArray[optionsNum].width}
+                top={optionArray[optionsNum].top}
+                left={optionArray[optionsNum].left}
+                borderRadius={optionArray[optionsNum].borderRadius}
+              />
             </div>
           );
         })}
