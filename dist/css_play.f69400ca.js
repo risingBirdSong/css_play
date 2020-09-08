@@ -28329,7 +28329,7 @@ Object.defineProperty(exports, "__esModule", {
 var React = __importStar(require("react"));
 
 var Pedal = function Pedal(props) {
-  console.log("trans x", props.transX);
+  console.log("props", props);
   var clrs = props.rgbColors;
   var colStr = "rgb(".concat(clrs[0], ",").concat(clrs[1], ",").concat(clrs[2], ")");
   console.log("clrs strs", colStr);
@@ -80866,6 +80866,11 @@ var Flower = function Flower() {
       optionsNum = _react_1$useState2[0],
       setoptionsNum = _react_1$useState2[1];
 
+  var _react_1$useState3 = react_1.useState(true),
+      _react_1$useState4 = _slicedToArray(_react_1$useState3, 2),
+      showPedal = _react_1$useState4[0],
+      setShowPedal = _react_1$useState4[1];
+
   var Nav = function Nav() {
     return React.createElement(core_1.Container, {
       component: "div",
@@ -80882,7 +80887,11 @@ var Flower = function Flower() {
           margin: "2px"
         },
         onClick: function onClick() {
+          setShowPedal(false);
           setoptionsNum(tuple[1]);
+          setTimeout(function () {
+            setShowPedal(true);
+          }, 100);
         }
       }, " ", tuple[0], " ");
     }));
@@ -80958,7 +80967,7 @@ var Flower = function Flower() {
       transX: radians_to_degrees(Math.cos(num)) * 3,
       transY: radians_to_degrees(Math.sin(num)) * 3
     }];
-    return React.createElement(Pedal_1.default, {
+    return React.createElement("div", null, showPedal ? React.createElement(Pedal_1.default, {
       transX: optionArray[optionsNum].transX,
       transY: optionArray[optionsNum].transY,
       marginTop: optionArray[optionsNum].marginTop,
@@ -80974,7 +80983,7 @@ var Flower = function Flower() {
       top: optionArray[optionsNum].top,
       left: optionArray[optionsNum].left,
       borderRadius: optionArray[optionsNum].borderRadius
-    });
+    }) : "");
   })));
 };
 

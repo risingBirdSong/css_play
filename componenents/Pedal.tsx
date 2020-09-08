@@ -19,8 +19,7 @@ export interface PedalProps {
   transY: number;
 }
 const Pedal = (props: PedalProps) => {
-  console.log("trans x", props.transX);
-
+  console.log("props", props);
   let clrs = props.rgbColors;
   let colStr = `rgb(${clrs[0]},${clrs[1]},${clrs[2]})`;
   console.log("clrs strs", colStr);
