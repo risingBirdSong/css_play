@@ -43,6 +43,8 @@ const Pedal = (props: PedalProps) => {
         borderBottomLeftRadius: props.borderBottomLeftRadius,
         borderTop: props.borderTop || `4px solid ${colStr}`,
         borderBottom: props.borderBottom,
+        boxShadow: `1px 1px 10px ${colStr}`,
+
         // borderRadius: props.borderRadius,
         //  borderTopLeftRadius: "1%",
         // borderTopRightRadius: "100%",

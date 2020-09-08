@@ -28351,7 +28351,8 @@ var Pedal = function Pedal(props) {
       borderBottomRightRadius: props.borderBottomRightRadius,
       borderBottomLeftRadius: props.borderBottomLeftRadius,
       borderTop: props.borderTop || "4px solid ".concat(colStr),
-      borderBottom: props.borderBottom
+      borderBottom: props.borderBottom,
+      boxShadow: "1px 1px 10px ".concat(colStr)
     }
   });
 };
@@ -80778,25 +80779,25 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 },{"./colors":"node_modules/@material-ui/core/esm/colors/index.js","./styles":"node_modules/@material-ui/core/esm/styles/index.js","./utils":"node_modules/@material-ui/core/esm/utils/index.js","./Accordion":"node_modules/@material-ui/core/esm/Accordion/index.js","./AccordionActions":"node_modules/@material-ui/core/esm/AccordionActions/index.js","./AccordionDetails":"node_modules/@material-ui/core/esm/AccordionDetails/index.js","./AccordionSummary":"node_modules/@material-ui/core/esm/AccordionSummary/index.js","./AppBar":"node_modules/@material-ui/core/esm/AppBar/index.js","./Avatar":"node_modules/@material-ui/core/esm/Avatar/index.js","./Backdrop":"node_modules/@material-ui/core/esm/Backdrop/index.js","./Badge":"node_modules/@material-ui/core/esm/Badge/index.js","./BottomNavigation":"node_modules/@material-ui/core/esm/BottomNavigation/index.js","./BottomNavigationAction":"node_modules/@material-ui/core/esm/BottomNavigationAction/index.js","./Box":"node_modules/@material-ui/core/esm/Box/index.js","./Breadcrumbs":"node_modules/@material-ui/core/esm/Breadcrumbs/index.js","./Button":"node_modules/@material-ui/core/esm/Button/index.js","./ButtonBase":"node_modules/@material-ui/core/esm/ButtonBase/index.js","./ButtonGroup":"node_modules/@material-ui/core/esm/ButtonGroup/index.js","./Card":"node_modules/@material-ui/core/esm/Card/index.js","./CardActionArea":"node_modules/@material-ui/core/esm/CardActionArea/index.js","./CardActions":"node_modules/@material-ui/core/esm/CardActions/index.js","./CardContent":"node_modules/@material-ui/core/esm/CardContent/index.js","./CardHeader":"node_modules/@material-ui/core/esm/CardHeader/index.js","./CardMedia":"node_modules/@material-ui/core/esm/CardMedia/index.js","./Checkbox":"node_modules/@material-ui/core/esm/Checkbox/index.js","./Chip":"node_modules/@material-ui/core/esm/Chip/index.js","./CircularProgress":"node_modules/@material-ui/core/esm/CircularProgress/index.js","./ClickAwayListener":"node_modules/@material-ui/core/esm/ClickAwayListener/index.js","./Collapse":"node_modules/@material-ui/core/esm/Collapse/index.js","./Container":"node_modules/@material-ui/core/esm/Container/index.js","./CssBaseline":"node_modules/@material-ui/core/esm/CssBaseline/index.js","./Dialog":"node_modules/@material-ui/core/esm/Dialog/index.js","./DialogActions":"node_modules/@material-ui/core/esm/DialogActions/index.js","./DialogContent":"node_modules/@material-ui/core/esm/DialogContent/index.js","./DialogContentText":"node_modules/@material-ui/core/esm/DialogContentText/index.js","./DialogTitle":"node_modules/@material-ui/core/esm/DialogTitle/index.js","./Divider":"node_modules/@material-ui/core/esm/Divider/index.js","./Drawer":"node_modules/@material-ui/core/esm/Drawer/index.js","./ExpansionPanel":"node_modules/@material-ui/core/esm/ExpansionPanel/index.js","./ExpansionPanelActions":"node_modules/@material-ui/core/esm/ExpansionPanelActions/index.js","./ExpansionPanelDetails":"node_modules/@material-ui/core/esm/ExpansionPanelDetails/index.js","./ExpansionPanelSummary":"node_modules/@material-ui/core/esm/ExpansionPanelSummary/index.js","./Fab":"node_modules/@material-ui/core/esm/Fab/index.js","./Fade":"node_modules/@material-ui/core/esm/Fade/index.js","./FilledInput":"node_modules/@material-ui/core/esm/FilledInput/index.js","./FormControl":"node_modules/@material-ui/core/esm/FormControl/index.js","./FormControlLabel":"node_modules/@material-ui/core/esm/FormControlLabel/index.js","./FormGroup":"node_modules/@material-ui/core/esm/FormGroup/index.js","./FormHelperText":"node_modules/@material-ui/core/esm/FormHelperText/index.js","./FormLabel":"node_modules/@material-ui/core/esm/FormLabel/index.js","./Grid":"node_modules/@material-ui/core/esm/Grid/index.js","./GridList":"node_modules/@material-ui/core/esm/GridList/index.js","./GridListTile":"node_modules/@material-ui/core/esm/GridListTile/index.js","./GridListTileBar":"node_modules/@material-ui/core/esm/GridListTileBar/index.js","./Grow":"node_modules/@material-ui/core/esm/Grow/index.js","./Hidden":"node_modules/@material-ui/core/esm/Hidden/index.js","./Icon":"node_modules/@material-ui/core/esm/Icon/index.js","./IconButton":"node_modules/@material-ui/core/esm/IconButton/index.js","./Input":"node_modules/@material-ui/core/esm/Input/index.js","./InputAdornment":"node_modules/@material-ui/core/esm/InputAdornment/index.js","./InputBase":"node_modules/@material-ui/core/esm/InputBase/index.js","./InputLabel":"node_modules/@material-ui/core/esm/InputLabel/index.js","./LinearProgress":"node_modules/@material-ui/core/esm/LinearProgress/index.js","./Link":"node_modules/@material-ui/core/esm/Link/index.js","./List":"node_modules/@material-ui/core/esm/List/index.js","./ListItem":"node_modules/@material-ui/core/esm/ListItem/index.js","./ListItemAvatar":"node_modules/@material-ui/core/esm/ListItemAvatar/index.js","./ListItemIcon":"node_modules/@material-ui/core/esm/ListItemIcon/index.js","./ListItemSecondaryAction":"node_modules/@material-ui/core/esm/ListItemSecondaryAction/index.js","./ListItemText":"node_modules/@material-ui/core/esm/ListItemText/index.js","./ListSubheader":"node_modules/@material-ui/core/esm/ListSubheader/index.js","./Menu":"node_modules/@material-ui/core/esm/Menu/index.js","./MenuItem":"node_modules/@material-ui/core/esm/MenuItem/index.js","./MenuList":"node_modules/@material-ui/core/esm/MenuList/index.js","./MobileStepper":"node_modules/@material-ui/core/esm/MobileStepper/index.js","./Modal":"node_modules/@material-ui/core/esm/Modal/index.js","./NativeSelect":"node_modules/@material-ui/core/esm/NativeSelect/index.js","./NoSsr":"node_modules/@material-ui/core/esm/NoSsr/index.js","./OutlinedInput":"node_modules/@material-ui/core/esm/OutlinedInput/index.js","./Paper":"node_modules/@material-ui/core/esm/Paper/index.js","./Popover":"node_modules/@material-ui/core/esm/Popover/index.js","./Popper":"node_modules/@material-ui/core/esm/Popper/index.js","./Portal":"node_modules/@material-ui/core/esm/Portal/index.js","./Radio":"node_modules/@material-ui/core/esm/Radio/index.js","./RadioGroup":"node_modules/@material-ui/core/esm/RadioGroup/index.js","./RootRef":"node_modules/@material-ui/core/esm/RootRef/index.js","./Select":"node_modules/@material-ui/core/esm/Select/index.js","./Slide":"node_modules/@material-ui/core/esm/Slide/index.js","./Slider":"node_modules/@material-ui/core/esm/Slider/index.js","./Snackbar":"node_modules/@material-ui/core/esm/Snackbar/index.js","./SnackbarContent":"node_modules/@material-ui/core/esm/SnackbarContent/index.js","./Step":"node_modules/@material-ui/core/esm/Step/index.js","./StepButton":"node_modules/@material-ui/core/esm/StepButton/index.js","./StepConnector":"node_modules/@material-ui/core/esm/StepConnector/index.js","./StepContent":"node_modules/@material-ui/core/esm/StepContent/index.js","./StepIcon":"node_modules/@material-ui/core/esm/StepIcon/index.js","./StepLabel":"node_modules/@material-ui/core/esm/StepLabel/index.js","./Stepper":"node_modules/@material-ui/core/esm/Stepper/index.js","./SvgIcon":"node_modules/@material-ui/core/esm/SvgIcon/index.js","./SwipeableDrawer":"node_modules/@material-ui/core/esm/SwipeableDrawer/index.js","./Switch":"node_modules/@material-ui/core/esm/Switch/index.js","./Tab":"node_modules/@material-ui/core/esm/Tab/index.js","./Table":"node_modules/@material-ui/core/esm/Table/index.js","./TableBody":"node_modules/@material-ui/core/esm/TableBody/index.js","./TableCell":"node_modules/@material-ui/core/esm/TableCell/index.js","./TableContainer":"node_modules/@material-ui/core/esm/TableContainer/index.js","./TableFooter":"node_modules/@material-ui/core/esm/TableFooter/index.js","./TableHead":"node_modules/@material-ui/core/esm/TableHead/index.js","./TablePagination":"node_modules/@material-ui/core/esm/TablePagination/index.js","./TableRow":"node_modules/@material-ui/core/esm/TableRow/index.js","./TableSortLabel":"node_modules/@material-ui/core/esm/TableSortLabel/index.js","./Tabs":"node_modules/@material-ui/core/esm/Tabs/index.js","./TabScrollButton":"node_modules/@material-ui/core/esm/TabScrollButton/index.js","./TextField":"node_modules/@material-ui/core/esm/TextField/index.js","./TextareaAutosize":"node_modules/@material-ui/core/esm/TextareaAutosize/index.js","./Toolbar":"node_modules/@material-ui/core/esm/Toolbar/index.js","./Tooltip":"node_modules/@material-ui/core/esm/Tooltip/index.js","./Typography":"node_modules/@material-ui/core/esm/Typography/index.js","./Unstable_TrapFocus":"node_modules/@material-ui/core/esm/Unstable_TrapFocus/index.js","./useMediaQuery":"node_modules/@material-ui/core/esm/useMediaQuery/index.js","./useScrollTrigger":"node_modules/@material-ui/core/esm/useScrollTrigger/index.js","./withMobileDialog":"node_modules/@material-ui/core/esm/withMobileDialog/index.js","./withWidth":"node_modules/@material-ui/core/esm/withWidth/index.js","./Zoom":"node_modules/@material-ui/core/esm/Zoom/index.js"}],"componenents/Flower.tsx":[function(require,module,exports) {
 "use strict";
 
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
 
 function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
 
 function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
 
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 var __createBinding = this && this.__createBinding || (Object.create ? function (o, m, k, k2) {
   if (k2 === undefined) k2 = k;
@@ -80850,7 +80851,7 @@ var Pedal_1 = __importDefault(require("./Pedal"));
 
 var core_1 = require("@material-ui/core");
 
-var buttonMapping = [["spiral", 0], ["shell", 1], ["spiral 2", 2], ["arcWreath", 3]];
+var buttonMapping = [["spiral", 0], ["shell", 1], ["spiral 2", 2], ["arcWreath", 3], ["anim shape", 4]];
 
 function radians_to_degrees(radians) {
   var pi = Math.PI;
@@ -80858,12 +80859,36 @@ function radians_to_degrees(radians) {
 }
 
 var Flower = function Flower() {
-  var nums = _toConsumableArray(Array(100).keys()).slice(1);
-
-  var _react_1$useState = react_1.useState(0),
+  var _react_1$useState = react_1.useState(100),
       _react_1$useState2 = _slicedToArray(_react_1$useState, 2),
-      optionsNum = _react_1$useState2[0],
-      setoptionsNum = _react_1$useState2[1];
+      n = _react_1$useState2[0],
+      setN = _react_1$useState2[1];
+
+  var _react_1$useState3 = react_1.useState(_toConsumableArray(Array(n).keys()).slice(n - 99)),
+      _react_1$useState4 = _slicedToArray(_react_1$useState3, 2),
+      nums = _react_1$useState4[0],
+      setNums = _react_1$useState4[1];
+
+  var _react_1$useState5 = react_1.useState(false),
+      _react_1$useState6 = _slicedToArray(_react_1$useState5, 2),
+      anim = _react_1$useState6[0],
+      setAnim = _react_1$useState6[1];
+
+  setTimeout(function () {
+    if (anim) {
+      setN(function (preV) {
+        return preV + 1;
+      });
+      setNums(_toConsumableArray(Array(n).keys()).map(function (num) {
+        return num + n;
+      }).slice(n - 99));
+    }
+  }, 1);
+
+  var _react_1$useState7 = react_1.useState(0),
+      _react_1$useState8 = _slicedToArray(_react_1$useState7, 2),
+      optionsNum = _react_1$useState8[0],
+      setoptionsNum = _react_1$useState8[1];
 
   var Nav = function Nav() {
     return React.createElement(core_1.Container, {
@@ -80881,6 +80906,12 @@ var Flower = function Flower() {
           margin: "2px"
         },
         onClick: function onClick() {
+          if (tuple[0].includes("anim")) {
+            setAnim(true);
+          } else {
+            setAnim(false);
+          }
+
           setoptionsNum(tuple[1]);
         }
       }, " ", tuple[0], " ");
@@ -80960,6 +80991,21 @@ var Flower = function Flower() {
       borderTopRightRadius: "100px",
       transX: radians_to_degrees(Math.cos(num)) * 3,
       transY: radians_to_degrees(Math.sin(num)) * 3
+    }, {
+      colors: [num * 1.3 + 50, 1, 255 % (num * 2) + 150],
+      rotateAmount: radians_to_degrees(Math.cos(num)) * 2 + n,
+      height: 100,
+      width: 50,
+      top: 1,
+      left: 1,
+      padding: "15px",
+      marginTop: "100px",
+      borderBottomLeftRadius: "100px",
+      borderBottomRightRadius: "100px",
+      borderTopLeftRadius: "100px",
+      borderTopRightRadius: "100px",
+      transX: radians_to_degrees(Math.cos(num)) * 2,
+      transY: radians_to_degrees(Math.sin(num)) * 2
     }];
     return React.createElement("div", null, React.createElement(Pedal_1.default, {
       transX: optionArray[optionsNum].transX,
@@ -81120,7 +81166,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57625" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60201" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

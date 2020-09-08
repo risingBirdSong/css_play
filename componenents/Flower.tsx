@@ -7,6 +7,7 @@ let buttonMapping: [string, number][] = [
   ["shell", 1],
   ["spiral 2", 2],
   ["arcWreath", 3],
+  ["anim shape", 4],
 ];
 interface optionsI {
   colors: number[];
@@ -32,8 +33,15 @@ function radians_to_degrees(radians: number) {
   return radians * (180 / pi);
 }
 const Flower = () => {
-  let nums = [...Array(100).keys()].slice(1);
-
+  const [n, setN] = useState(100);
+  let [nums, setNums] = useState([...Array(n).keys()].slice(n - 99));
+  const [anim, setAnim] = useState(false);
+  setTimeout(() => {
+    if (anim) {
+      setN((preV) => preV + 1);
+      setNums([...Array(n).keys()].map((num) => num + n).slice(n - 99));
+    }
+  }, 1);
   const [optionsNum, setoptionsNum] = useState(0);
   const Nav = () => {
     return (
@@ -47,6 +55,11 @@ const Flower = () => {
             color="primary"
             style={{ margin: "2px" }}
             onClick={() => {
+              if (tuple[0].includes("anim")) {
+                setAnim(true);
+              } else {
+                setAnim(false);
+              }
               setoptionsNum(tuple[1]);
             }}
           >
@@ -139,6 +152,22 @@ const Flower = () => {
               borderTopRightRadius: "100px",
               transX: radians_to_degrees(Math.cos(num)) * 3,
               transY: radians_to_degrees(Math.sin(num)) * 3,
+            },
+            {
+              colors: [num * 1.3 + 50, 1, (255 % (num * 2)) + 150],
+              rotateAmount: radians_to_degrees(Math.cos(num)) * 2 + n,
+              height: 100,
+              width: 50,
+              top: 1,
+              left: 1,
+              padding: "15px",
+              marginTop: "100px",
+              borderBottomLeftRadius: "100px",
+              borderBottomRightRadius: "100px",
+              borderTopLeftRadius: "100px",
+              borderTopRightRadius: "100px",
+              transX: radians_to_degrees(Math.cos(num)) * 2,
+              transY: radians_to_degrees(Math.sin(num)) * 2,
             },
           ];
           return (
