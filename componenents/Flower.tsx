@@ -1,13 +1,13 @@
 import * as React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Pedal from "./Pedal";
 import { Box, Button, Container } from "@material-ui/core";
 let buttonMapping: [string, number][] = [
   ["spiral", 0],
   ["shell", 1],
-  ["spiral 2", 2],
+  ["shell with shadow", 2],
   ["arcWreath", 3],
-  ["anim shape", 4],
+  ["anim shape", 5],
 ];
 interface optionsI {
   colors: number[];
@@ -27,6 +27,7 @@ interface optionsI {
   marginTop: string;
   transX: number;
   transY: number;
+  boxShadow?: string;
 }
 function radians_to_degrees(radians: number) {
   var pi = Math.PI;
@@ -36,14 +37,22 @@ const Flower = () => {
   const [n, setN] = useState(100);
   let [nums, setNums] = useState([...Array(n).keys()].slice(n - 99));
   const [anim, setAnim] = useState(false);
-  setTimeout(() => {
-    if (anim) {
-      setN((preV) => preV + 1);
-      setNums([...Array(n).keys()].map((num) => num + n).slice(n - 99));
-    }
-  }, 1);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (anim) {
+        console.log("should not hit");
+        setN((preV) => preV + 1);
+        setNums([...Array(n).keys()].map((num) => num + n).slice(n - 99));
+      }
+    }, 1);
+    return () => clearTimeout(timer);
+  }, []);
+
   const [optionsNum, setoptionsNum] = useState(0);
   const Nav = () => {
+    console.log("nums", nums);
+
     return (
       <Container
         component="div"
@@ -123,18 +132,19 @@ const Flower = () => {
             {
               colors: [((num * 2) % 255) + 50, 1, (num + 150) % 255],
               rotateAmount: num * 3,
-              height: 400 + num,
-              width: 50 + num * 2,
+              height: 400,
+              width: 100,
               top: num * 3,
               left: num * 3,
               padding: "0px",
-              borderTopLeftRadius: "1%",
-              borderTopRightRadius: "100%",
-              borderBottomRightRadius: "1%",
-              borderBottomLeftRadius: "1%",
-              marginTop: "-70px",
+              borderTopLeftRadius: "5%",
+              borderTopRightRadius: "80%",
+              borderBottomRightRadius: "100%",
+              borderBottomLeftRadius: "100%",
+              marginTop: "-30px",
               transX: 0,
               transY: 0,
+              boxShadow: "1px 1px 10px",
             },
             {
               colors: [num * 1.3 + 50, 1, (255 % (num * 2)) + 150],
@@ -152,6 +162,7 @@ const Flower = () => {
               borderTopRightRadius: "100px",
               transX: radians_to_degrees(Math.cos(num)) * 3,
               transY: radians_to_degrees(Math.sin(num)) * 3,
+              boxShadow: "1px 1px 10px",
             },
             {
               colors: [num * 1.3 + 50, 1, (255 % (num * 2)) + 150],
@@ -196,6 +207,7 @@ const Flower = () => {
                 top={optionArray[optionsNum].top}
                 left={optionArray[optionsNum].left}
                 borderRadius={optionArray[optionsNum].borderRadius}
+                boxShadow={optionArray[optionsNum].boxShadow}
               />
             </div>
           );

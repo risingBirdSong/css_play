@@ -28329,10 +28329,9 @@ Object.defineProperty(exports, "__esModule", {
 var React = __importStar(require("react"));
 
 var Pedal = function Pedal(props) {
-  console.log("props", props);
   var clrs = props.rgbColors;
   var colStr = "rgb(".concat(clrs[0], ",").concat(clrs[1], ",").concat(clrs[2], ")");
-  console.log("clrs strs", colStr);
+  console.log("box shadow", props.boxShadow);
   return React.createElement("div", {
     className: "pedal",
     style: {
@@ -28352,7 +28351,7 @@ var Pedal = function Pedal(props) {
       borderBottomLeftRadius: props.borderBottomLeftRadius,
       borderTop: props.borderTop || "4px solid ".concat(colStr),
       borderBottom: props.borderBottom,
-      boxShadow: "1px 1px 10px ".concat(colStr)
+      boxShadow: props.boxShadow ? "".concat(props.boxShadow, " ").concat(colStr) : ""
     }
   });
 };
@@ -80851,7 +80850,7 @@ var Pedal_1 = __importDefault(require("./Pedal"));
 
 var core_1 = require("@material-ui/core");
 
-var buttonMapping = [["spiral", 0], ["shell", 1], ["spiral 2", 2], ["arcWreath", 3], ["anim shape", 4]];
+var buttonMapping = [["spiral", 0], ["shell", 1], ["shell with shadow", 2], ["arcWreath", 3], ["anim shape", 5]];
 
 function radians_to_degrees(radians) {
   var pi = Math.PI;
@@ -80874,16 +80873,22 @@ var Flower = function Flower() {
       anim = _react_1$useState6[0],
       setAnim = _react_1$useState6[1];
 
-  setTimeout(function () {
-    if (anim) {
-      setN(function (preV) {
-        return preV + 1;
-      });
-      setNums(_toConsumableArray(Array(n).keys()).map(function (num) {
-        return num + n;
-      }).slice(n - 99));
-    }
-  }, 1);
+  react_1.useEffect(function () {
+    var timer = setTimeout(function () {
+      if (anim) {
+        console.log("should not hit");
+        setN(function (preV) {
+          return preV + 1;
+        });
+        setNums(_toConsumableArray(Array(n).keys()).map(function (num) {
+          return num + n;
+        }).slice(n - 99));
+      }
+    }, 1);
+    return function () {
+      return clearTimeout(timer);
+    };
+  }, []);
 
   var _react_1$useState7 = react_1.useState(0),
       _react_1$useState8 = _slicedToArray(_react_1$useState7, 2),
@@ -80891,6 +80896,7 @@ var Flower = function Flower() {
       setoptionsNum = _react_1$useState8[1];
 
   var Nav = function Nav() {
+    console.log("nums", nums);
     return React.createElement(core_1.Container, {
       component: "div",
       style: {
@@ -80963,18 +80969,19 @@ var Flower = function Flower() {
     }, {
       colors: [num * 2 % 255 + 50, 1, (num + 150) % 255],
       rotateAmount: num * 3,
-      height: 400 + num,
-      width: 50 + num * 2,
+      height: 400,
+      width: 100,
       top: num * 3,
       left: num * 3,
       padding: "0px",
-      borderTopLeftRadius: "1%",
-      borderTopRightRadius: "100%",
-      borderBottomRightRadius: "1%",
-      borderBottomLeftRadius: "1%",
-      marginTop: "-70px",
+      borderTopLeftRadius: "5%",
+      borderTopRightRadius: "80%",
+      borderBottomRightRadius: "100%",
+      borderBottomLeftRadius: "100%",
+      marginTop: "-30px",
       transX: 0,
-      transY: 0
+      transY: 0,
+      boxShadow: "1px 1px 10px"
     }, {
       colors: [num * 1.3 + 50, 1, 255 % (num * 2) + 150],
       rotateAmount: radians_to_degrees(Math.cos(num)) * 3,
@@ -80990,7 +80997,8 @@ var Flower = function Flower() {
       borderTopLeftRadius: "100px",
       borderTopRightRadius: "100px",
       transX: radians_to_degrees(Math.cos(num)) * 3,
-      transY: radians_to_degrees(Math.sin(num)) * 3
+      transY: radians_to_degrees(Math.sin(num)) * 3,
+      boxShadow: "1px 1px 10px"
     }, {
       colors: [num * 1.3 + 50, 1, 255 % (num * 2) + 150],
       rotateAmount: radians_to_degrees(Math.cos(num)) * 2 + n,
@@ -81022,7 +81030,8 @@ var Flower = function Flower() {
       width: optionArray[optionsNum].width,
       top: optionArray[optionsNum].top,
       left: optionArray[optionsNum].left,
-      borderRadius: optionArray[optionsNum].borderRadius
+      borderRadius: optionArray[optionsNum].borderRadius,
+      boxShadow: optionArray[optionsNum].boxShadow
     }));
   })));
 };
@@ -81166,7 +81175,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60201" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59811" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

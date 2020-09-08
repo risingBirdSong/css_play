@@ -17,12 +17,13 @@ export interface PedalProps {
   marginTop?: string;
   transX: number;
   transY: number;
+  boxShadow?: string;
 }
 const Pedal = (props: PedalProps) => {
-  console.log("props", props);
   let clrs = props.rgbColors;
   let colStr = `rgb(${clrs[0]},${clrs[1]},${clrs[2]})`;
-  console.log("clrs strs", colStr);
+  console.log("box shadow", props.boxShadow);
+
   return (
     <div
       className="pedal"
@@ -43,7 +44,7 @@ const Pedal = (props: PedalProps) => {
         borderBottomLeftRadius: props.borderBottomLeftRadius,
         borderTop: props.borderTop || `4px solid ${colStr}`,
         borderBottom: props.borderBottom,
-        boxShadow: `1px 1px 10px ${colStr}`,
+        boxShadow: props.boxShadow ? `${props.boxShadow} ${colStr}` : "",
 
         // borderRadius: props.borderRadius,
         //  borderTopLeftRadius: "1%",
