@@ -6,8 +6,18 @@ export interface PedalProps {
   height: number;
   width: number;
   rgbColors: [number, number, number] | number[];
+  padding: string;
+  borderTopLeftRadius: string;
+  borderTopRightRadius: string;
+  borderBottomRightRadius: string;
+  borderBottomLeftRadius: string;
+  marginTop: string;
+  transX: number;
+  transY: number;
 }
 const Pedal = (props: PedalProps) => {
+  console.log("trans x", props.transX);
+
   let clrs = props.rgbColors;
   let colStr = `rgb(${clrs[0]},${clrs[1]},${clrs[2]})`;
   console.log("clrs strs", colStr);
@@ -17,17 +27,22 @@ const Pedal = (props: PedalProps) => {
       style={{
         // backgroundColor: `rgb(100, 1, 10)`,
         // backgroundColor: colStr,
-        padding: "15px",
+        marginTop: props.marginTop,
+        padding: props.padding,
         height: props.height,
         width: props.width,
         position: "absolute",
         top: props.top,
         left: props.left,
-        transform: `rotate(${props.rotateAmount}deg)`,
-        borderTopLeftRadius: "5%",
-        borderTopRightRadius: "80%",
-        borderBottomRightRadius: "100%",
-        borderBottomLeftRadius: "100%",
+        transform: `translate(${props.transX}px, ${props.transY}px) rotate(${props.rotateAmount}deg)`,
+        borderTopLeftRadius: props.borderTopLeftRadius,
+        borderTopRightRadius: props.borderTopRightRadius,
+        borderBottomRightRadius: props.borderBottomRightRadius,
+        borderBottomLeftRadius: props.borderBottomLeftRadius,
+        //  borderTopLeftRadius: "1%",
+        // borderTopRightRadius: "100%",
+        // borderBottomRightRadius: "1%",
+        // borderBottomLeftRadius: "1%",
         borderTop: `4px solid ${colStr}`,
       }}
     ></div>
